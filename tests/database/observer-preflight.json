@@ -1,0 +1,146 @@
+{
+  "databaseAcls": [
+    {
+      "name": "postgres",
+      "owner": "postgres",
+      "acl": null
+    },
+    {
+      "name": "template1",
+      "owner": "postgres",
+      "acl": ["=c/postgres", "postgres=CTc/postgres"]
+    },
+    {
+      "name": "template0",
+      "owner": "postgres",
+      "acl": ["=c/postgres", "postgres=CTc/postgres"]
+    },
+    {
+      "name": "smart_storage_gateway_test",
+      "owner": "postgres",
+      "acl": ["postgres=CTc/postgres", "ss_gateway_runtime_test=c/postgres"]
+    }
+  ],
+  "memberships": [
+    {
+      "role": "pg_read_all_settings",
+      "member": "pg_monitor",
+      "admin": false,
+      "inherit": true,
+      "set": true
+    },
+    {
+      "role": "pg_read_all_stats",
+      "member": "pg_monitor",
+      "admin": false,
+      "inherit": true,
+      "set": true
+    },
+    {
+      "role": "pg_stat_scan_tables",
+      "member": "pg_monitor",
+      "admin": false,
+      "inherit": true,
+      "set": true
+    },
+    {
+      "role": "ss_gateway_executor",
+      "member": "ss_gateway_runtime_test",
+      "admin": false,
+      "inherit": false,
+      "set": true
+    }
+  ],
+  "hba": [
+    {
+      "rule_number": 1,
+      "type": "host",
+      "database": ["smart_storage_gateway_test"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 2,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "0.0.0.0",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 3,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "::",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 4,
+      "type": "local",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": null,
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 5,
+      "type": "local",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 6,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 7,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 8,
+      "type": "local",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 9,
+      "type": "host",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 10,
+      "type": "host",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    }
+  ]
+}

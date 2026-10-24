@@ -1,0 +1,18 @@
+{
+  "project": "rrylhvqalsxjnkdkpwde",
+  "userId": "310d0ec8-84ca-423a-b646-0480a20edc09",
+  "bucket": "smart-storage-gateway-probe",
+  "key": "gateway-probe/v1/probe-fixture-v1.txt",
+  "policyName": "smart_storage_probe_read_only",
+  "privateBucketConfirmed": true,
+  "rlsEnabled": true,
+  "selectPredicateBindsExactUidBucketKey": true,
+  "applicableRolesReviewed": true,
+  "allPoliciesAndGrantsReviewed": true,
+  "reviewReference": null,
+  "reviewKind": "seeded-fixture-configuration-v1",
+  "checkedRoleMembershipsReviewed": false,
+  "reportedSelectBoundaryReviewed": false,
+  "reportedMutationPolicyAbsenceReviewed": false,
+  "effectiveStorageApiBehavior": "UNVERIFIED"
+}

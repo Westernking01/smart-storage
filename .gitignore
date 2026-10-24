@@ -1,0 +1,118 @@
+node_modules/
+.cache/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+next-env.d.ts
+.env*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.vercel/
+
+# ==========================================
+# SMART STORAGE - GITIGNORE
+# ==========================================
+
+# Dependencies
+/node_modules/
+/.pnp/
+.pnp.*
+
+# Next.js build output
+/.next/
+/out/
+/build/
+/dist/
+/.vercel/
+
+# Development caches and temporary output
+/.cache/
+/tmp/
+/temp/
+/.turbo/
+/*.tsbuildinfo
+*.log
+debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.jks
+*.keystore
+
+# Secret storage
+/.secrets/
+/secrets/
+/credentials/
+/.private/
+
+# Test-generated artifacts
+/coverage/
+/test-results/
+/playwright-report/
+/blob-report/
+/.nyc_output/
+/screenshots/
+/videos/
+/traces/
+*.trace.zip
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Documentation - explicitly excluded
+/docs/
+
+# IDE and operating system
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+/.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+
+# Local Codex artifacts
+/.codex/
+/.codex-cache/
+
+# Temporary file payloads
+/uploads/
+/downloads/
+/generated-files/
+/local-fixtures-output/
+
+# Local experimental output
+/experiments/**/output/
+/experiments/**/results/
+/experiments/**/tmp/
+
+# Python caches
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc

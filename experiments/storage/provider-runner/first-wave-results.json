@@ -1,0 +1,134 @@
+{
+  "task": "1.4B.2-resumption",
+  "observedAt": "2026-10-12T15:47:20.541Z",
+  "cliExitCode": 1,
+  "run": "p14b-20261011-c40e8e03",
+  "attemptedAllocations": 1,
+  "attemptedBodyBytes": 474,
+  "halted": "DENIAL_NOT_ESTABLISHED",
+  "requests": [
+    {
+      "id": "login-A",
+      "actor": "A",
+      "slot": null,
+      "method": "POST",
+      "purpose": "login",
+      "allocationAttempt": 0,
+      "bodyBytes": 109,
+      "cumulativeBytes": 109,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "identity-A",
+      "actor": "A",
+      "slot": null,
+      "method": "GET",
+      "purpose": "identity",
+      "allocationAttempt": 0,
+      "bodyBytes": 0,
+      "cumulativeBytes": 109,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "login-B",
+      "actor": "B",
+      "slot": null,
+      "method": "POST",
+      "purpose": "login",
+      "allocationAttempt": 0,
+      "bodyBytes": 109,
+      "cumulativeBytes": 218,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "identity-B",
+      "actor": "B",
+      "slot": null,
+      "method": "GET",
+      "purpose": "identity",
+      "allocationAttempt": 0,
+      "bodyBytes": 0,
+      "cumulativeBytes": 218,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "rest-A",
+      "actor": "A",
+      "slot": 0,
+      "method": "POST",
+      "purpose": "rest-upload",
+      "allocationAttempt": 1,
+      "bodyBytes": 256,
+      "cumulativeBytes": 474,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "download-A",
+      "actor": "A",
+      "slot": 0,
+      "method": "GET",
+      "purpose": "download",
+      "allocationAttempt": 1,
+      "bodyBytes": 0,
+      "cumulativeBytes": 474,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "cross-read-B",
+      "actor": "B",
+      "slot": 0,
+      "method": "GET",
+      "purpose": "cross-read",
+      "allocationAttempt": 1,
+      "bodyBytes": 0,
+      "cumulativeBytes": 474,
+      "status": 400,
+      "state": "failed",
+      "cleanup": "not-eligible"
+    }
+  ],
+  "firstWaveLimits": {
+    "allocations": 3,
+    "bodyBytes": 6325536
+  },
+  "firstWaveRemaining": {
+    "allocations": 2,
+    "bodyBytes": 6325062
+  },
+  "incompleteKnownTusResources": 0,
+  "knownTusResources": [],
+  "cleanupPreview": [],
+  "cleanupExecuted": false,
+  "classification": "FIRST WAVE STOPPED / INCOMPLETE",
+  "lastExecutedStage": "cross-read-B",
+  "restFixtureVerification": {
+    "bytes": 256,
+    "exactDigestVerified": true,
+    "evidence": "download-A completed validation; no DOWNLOAD_BYTES_MISMATCH halt before next stage"
+  },
+  "remoteObjectEvidence": {
+    "createdByThisRun": 1,
+    "slot": 0,
+    "source": "REST upload HTTP 200 and subsequent exact-byte download HTTP 200",
+    "ownershipVerified": false,
+    "retained": true
+  },
+  "wholeRunRemaining": {
+    "allocations": 11,
+    "bodyBytes": 33553958,
+    "additionalCapacityAuthorized": false
+  },
+  "accessControlConclusion": "HTTP 400 did not satisfy reviewed denial criteria; no successful cross-user access observed, denial cause unverified"
+}

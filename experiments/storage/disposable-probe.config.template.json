@@ -1,0 +1,19 @@
+{
+  "enabled": false,
+  "project": "rrylhvqalsxjnkdkpwde",
+  "endpoint": "https://rrylhvqalsxjnkdkpwde.supabase.co/storage/v1",
+  "bucket": "smart-storage-gateway-probe",
+  "privateBucket": true,
+  "prefix": "gateway-probe/v1/",
+  "key": "gateway-probe/v1/probe-fixture-v1.txt",
+  "expectedBytes": 123,
+  "expectedSha256": "57d60b8f171ecb27ee614e0a518b3bfba7d8c994bb4daf20c496818970d4c511",
+  "independentFixtureVerification": null,
+  "destinations": {
+    "observer": "postgresql://127.0.0.1:5432/smart_storage_gateway_test",
+    "observerRole": "ss_gateway_observer_runtime_test",
+    "evidenceDirectory": "C:\\Users\\Admin\\Desktop\\NEW\\smart-storage-probe-evidence",
+    "restrictedAclReviewed": false
+  },
+  "userId": "310d0ec8-84ca-423a-b646-0480a20edc09"
+}

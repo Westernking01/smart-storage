@@ -1,0 +1,674 @@
+[
+  {
+    "signature": "public.race10_assert(boolean)",
+    "hash": "c404fc5356e04ba81c779922b90a5d99",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race10_error(text,text)",
+    "hash": "568efd8c47027f6cd4ffd8b7017e5f2d",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race10_register(integer,text,text,uuid)",
+    "hash": "7313b2f06cb5e5c35cbd728784c726b1",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race16_assert(boolean)",
+    "hash": "d859c9483a5f70ed09bb5db998438ef7",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race16_error(text,text)",
+    "hash": "78fbfb0a5d54b7e5d989df17eda1c2da",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race16_register(integer,text,text,uuid)",
+    "hash": "43ac0f1f8ba0335e11e2d0c6900b5d1f",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race18_assert(boolean)",
+    "hash": "f54d236d432ad7fa36402669ac792589",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race18_cert(text,uuid,bigint,uuid)",
+    "hash": "1545802f7b8b9e5a272343c21a6d5470",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race18_error(text,text)",
+    "hash": "fb83970975dd866e478d92d85248e8e8",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race18_manifest()",
+    "hash": "5e47197d5a992161ce4c0f31581c937f",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race18_prepare(bigint,jsonb)",
+    "hash": "8d52ef7c46927c4ea04fcebf1268744b",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race18_register(integer,text,text,uuid)",
+    "hash": "bc19461df0799d4d6ea1814fc0a77e8a",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race20_assert(boolean)",
+    "hash": "676ba314dda40b78cb55b289788ec822",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race20_cert(text,uuid,bigint,uuid)",
+    "hash": "28534ce09a31ef7d61017550ff76471b",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race20_error(text,text)",
+    "hash": "9c038ce62e9f7760fcb5507ce62712bc",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race20_manifest()",
+    "hash": "c68fa337def107ea48c1bf508dca938a",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race20_prepare(bigint,jsonb)",
+    "hash": "fce6afe65ee748c2a326bc966838cc9d",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race20_register(integer,text,text,uuid)",
+    "hash": "bee825e136203c463ae7af20cf9d026b",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race21_assert(boolean)",
+    "hash": "8cd572214dff816b8791f8fdbc902793",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race21_cert(text,uuid,bigint,uuid)",
+    "hash": "1d57176e58691ab6a8a3efdd5e40f427",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race21_error(text,text)",
+    "hash": "6462a3e4dd7291f726b0369d17e55974",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race21_manifest()",
+    "hash": "ed95795f3325001a6f84f4c30bafbd0e",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race21_prepare(bigint,jsonb)",
+    "hash": "b9e834a9515064407ffeb32ba48dad66",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race21_register(integer,text,text,uuid)",
+    "hash": "4b7208a6add8a615910b867dc56b2b52",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race25_assert(boolean)",
+    "hash": "88c771d1ec9fbee8184b47ad9f440f2b",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race25_error(text,text)",
+    "hash": "d59871a004ba311e5cef3f4cef952f50",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race25_register(integer,text,text,uuid)",
+    "hash": "752b316d6804774d2a7b2747349f931c",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race27_assert(boolean)",
+    "hash": "8fa9da7b62322674e3f0fbaa1fea81ee",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race27_cert(text,uuid,bigint,uuid)",
+    "hash": "86364d16df2e36fadc973faecf482b34",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race27_error(text,text)",
+    "hash": "595c7bb198a40ffbf66b951d90635774",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race27_manifest()",
+    "hash": "2d1fa7b75ff6eeb91764b0e3dd4b1c00",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race27_prepare(bigint,jsonb)",
+    "hash": "b3c718ad4a0b1a91c37442dbc88f280d",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race27_register(integer,text,text,uuid)",
+    "hash": "e976c2bacf2828422aaac2f04688a90e",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race29_assert(boolean)",
+    "hash": "710df8beed4b55f6da167dccd3ecc262",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race29_cert(text,uuid,bigint,uuid)",
+    "hash": "9036562c0d0edc48bdd42b06bb092a9c",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race29_error(text,text)",
+    "hash": "ee30f16d7537fbe88e7d328ea7957753",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race29_manifest()",
+    "hash": "7ff2bd7c335cda1530cc2fd12883411d",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race29_prepare(bigint,jsonb)",
+    "hash": "4e11e8fd9cc39fae8cbef26194b08766",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race29_register(integer,text,text,uuid)",
+    "hash": "c629d4e6797b88c7e55551f20e15c1b1",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race30_assert(boolean)",
+    "hash": "9319c044871d3fdda60a1a858977f99a",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race30_cert(text,uuid,bigint,uuid)",
+    "hash": "110657e2d19bf838266d97532426c463",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race30_error(text,text)",
+    "hash": "6ebf672a2acf433c8e3e6bbe7d3f141d",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race30_manifest()",
+    "hash": "4e1417cce9a2a0e6ca28c749b492089a",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race30_register(integer,text,text,uuid)",
+    "hash": "82811a5818908f720ba582073d6c42c3",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race31_assert(boolean)",
+    "hash": "93dda9bf64a9bd972f35800f9f2756a2",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race31_cert(text,uuid,bigint,uuid)",
+    "hash": "2b07e3892b9850e9057d779becef31ac",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race31_error(text,text)",
+    "hash": "9e4c0089dec6f4464f5a2cf68e70a3fd",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race31_manifest()",
+    "hash": "914f452cc7df04d6ecfbab7ac099e0a5",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race31_prepare(bigint,jsonb)",
+    "hash": "657dbd62319611b9f59ece9593510316",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race31_register(integer,text,text,uuid)",
+    "hash": "0f657c883cca5181f823aa7bc4f340ee",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race32_assert(boolean)",
+    "hash": "cd22648a250c18f081ad275596f51210",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race32_cert(text,uuid,bigint,uuid)",
+    "hash": "acec557c7cf89517e2e363aa7c8f9510",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race32_error(text,text)",
+    "hash": "bfdbe797ef0d28a0fbbb647c039eef2d",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race32_manifest()",
+    "hash": "e9fa19c7ff7465cfca9ff86261a7dcee",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race32_prepare(bigint,jsonb)",
+    "hash": "66e214faaef54c28469778d735db28c0",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race32_register(integer,text,text,uuid)",
+    "hash": "74cf55efeb17e9c3ca3227829fa6d831",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race36_assert(boolean)",
+    "hash": "5d9a4ab67184afbe8de191511a4dc65a",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race36_error(text,text)",
+    "hash": "39fa30da994a16122870bd93fd478339",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race36_register(integer,text,text,uuid)",
+    "hash": "21083da9872a126e22591f2ee3160cb7",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race38_assert(boolean)",
+    "hash": "6a71b351ffd01b91098efff2597cf1b6",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race38_cert(text,uuid,bigint,uuid)",
+    "hash": "c84d14240c7dd9527241efe55a78c2e5",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race38_error(text,text)",
+    "hash": "22deebf3fddb4bcaf43066c8e52b4f7a",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race38_manifest()",
+    "hash": "8e05607671742818b7c50aa6cbb32aef",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race38_prepare(bigint,jsonb)",
+    "hash": "05dfa26e49a068e734460ffe65e968c2",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race38_register(integer,text,text,uuid)",
+    "hash": "59f39e4b93a24ea971dfba21a88782ac",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race4_assert(boolean)",
+    "hash": "da934e81fa8a27392280d9d8f7abf5db",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race4_error(text,text)",
+    "hash": "225ffc415f9eba481f35c91a989502f0",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race4_register(integer,text,text,uuid)",
+    "hash": "60831f08f9c26b48707f7cfde24875ad",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race40_assert(boolean)",
+    "hash": "e34d33065ae31cf80658c54a42b47fef",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race40_cert(text,uuid,bigint,uuid)",
+    "hash": "fdab9b9674e9d4d25f52faf87becec1f",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race40_error(text,text)",
+    "hash": "7c41764b1b89efd69a7a292289461e30",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race40_manifest()",
+    "hash": "363be1332aedab14878048bbca5f30d0",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race40_prepare(bigint,jsonb)",
+    "hash": "e47e895e6626fd9cae06f8d58ce41307",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race40_register(integer,text,text,uuid)",
+    "hash": "f80be7a188fe4f0c0e5623defd69deaa",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race41_assert(boolean)",
+    "hash": "6eb43fe92da6e25b1f5f578d25161c9f",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race41_cert(text,uuid,bigint,uuid)",
+    "hash": "1765f96b21d9eb99d5be00db0d1cd030",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race41_error(text,text)",
+    "hash": "055443e3d62914257ff5eed8c5274004",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race41_manifest()",
+    "hash": "9d6449a7285500cb6b52580dddb8ef02",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race41_register(integer,text,text,uuid)",
+    "hash": "953817f9626a045cee94cc92b7596dad",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race42_assert(boolean)",
+    "hash": "c325d1f1c44f8cf069918648db747819",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race42_cert(text,uuid,bigint,uuid)",
+    "hash": "252becf85c0bc60eaa84d949d4b7a392",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race42_error(text,text)",
+    "hash": "799eb8af99e95ed5c7e9bfb6daa37548",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race42_manifest()",
+    "hash": "96fa33b8575025dd9c32b2a900084b41",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race42_prepare(bigint,jsonb)",
+    "hash": "dc1259a1860aa87608e80aadc7ff7313",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race42_register(integer,text,text,uuid)",
+    "hash": "6f9dd536114f52187419b4d98bb58e9d",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race43_assert(boolean)",
+    "hash": "2156d78c100dfa1f766c8b21cda175e3",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race43_cert(text,uuid,bigint,uuid)",
+    "hash": "656fa97d7bf705e05e012d9d1a69acd0",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race43_error(text,text)",
+    "hash": "5accddf15981caaef96d4f5b89742dff",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race43_manifest()",
+    "hash": "b831bd300dadf4b8bb99c6f566cc5a37",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race43_prepare(bigint,jsonb)",
+    "hash": "1564a951955919ba1f4f1a3a125f30e5",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race43_register(integer,text,text,uuid)",
+    "hash": "2f49c194d4f0bbd831d2765f22d23c94",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race43_settle(uuid,bigint)",
+    "hash": "a171b29dfd25e5e7a62dd31a0941d157",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race44_assert(boolean)",
+    "hash": "509a0c17513da1cb6264dcea17582b42",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race44_cert(text,uuid,bigint,uuid)",
+    "hash": "098cdb3f577d3255e6c58b54fe5606d4",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race44_error(text,text)",
+    "hash": "93077756fba92e259cce1d58e632894a",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race44_manifest()",
+    "hash": "ca9e2e2863088c2fb78150f681914ff5",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race44_prepare(bigint,jsonb)",
+    "hash": "76009d9f555e375de4d8687eda66baca",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race44_register(integer,text,text,uuid)",
+    "hash": "a98bb6ad1e3954a901dfc40b7775ffe6",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race44_settle(uuid,bigint)",
+    "hash": "be9bd32fb83d28c7ef723137933b32a8",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race6_assert(boolean)",
+    "hash": "3a8ec555b751903c3e5a7124a721cd9f",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race6_cert(text,uuid,bigint,uuid)",
+    "hash": "01a3fcf0da927c11490d825e3688a4b3",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race6_error(text,text)",
+    "hash": "c9a11fd7ba1ebabde91e29c6af9926f4",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race6_manifest()",
+    "hash": "5b20066494fedcd6794d2caf4d53cd93",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race6_prepare(bigint,jsonb)",
+    "hash": "7349e655965a9e7bd133ea83f81bb9a0",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.race6_register(integer,text,text,uuid)",
+    "hash": "5c26e347611081f6852f7f2d74991702",
+    "kind": "helper",
+    "basis": "recorded_pg_get_functiondef"
+  },
+  {
+    "signature": "public.ss_begin_attempt_request(uuid,bigint,uuid,bigint)",
+    "hash": "af08d29e1034acf6214e92bd41a8a5ff",
+    "kind": "legacy",
+    "basis": "migration_003_prosrc_plus_006_patch"
+  },
+  {
+    "signature": "public.ss_finish_attempt_request(uuid,bigint)",
+    "hash": "1cdb7d095a661890399c5bd41e8a886e",
+    "kind": "legacy",
+    "basis": "migration_003_prosrc_plus_006_patch"
+  },
+  {
+    "signature": "public.ss_record_observation(uuid,bigint,bigint)",
+    "hash": "ba97d20bf34d99442112f199bd9ae171",
+    "kind": "legacy",
+    "basis": "migration_003_prosrc_plus_006_patch"
+  },
+  {
+    "signature": "public.ss_finalize_verified(uuid,jsonb,bigint,text,text)",
+    "hash": "ee42fade07b534e7f1a4b8e6e410a31b",
+    "kind": "legacy",
+    "basis": "migration_003_prosrc_plus_006_patch"
+  },
+  {
+    "signature": "public.ss_expire(uuid)",
+    "hash": "e1b5c5b4355bfc699f87ec187181e532",
+    "kind": "legacy",
+    "basis": "migration_003_prosrc_plus_006_patch"
+  },
+  {
+    "signature": "public.ss_reconcile_removed_attempt(uuid,boolean,boolean)",
+    "hash": "0682844ebf92724465dc14717e3371c5",
+    "kind": "legacy",
+    "basis": "migration_003_prosrc_plus_006_patch"
+  },
+  {
+    "signature": "public.ss_settle_cleanup(uuid,boolean,boolean)",
+    "hash": "4aa6d7036bcf838c68c993fdf7b46a15",
+    "kind": "legacy",
+    "basis": "migration_003_prosrc_plus_006_patch"
+  }
+]

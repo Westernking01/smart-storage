@@ -1,0 +1,18 @@
+{
+  "enabled": false,
+  "project": "rrylhvqalsxjnkdkpwde",
+  "authEndpoint": "https://rrylhvqalsxjnkdkpwde.supabase.co/auth/v1",
+  "userId": "310d0ec8-84ca-423a-b646-0480a20edc09",
+  "method": "password",
+  "apiKeyKind": "publishable",
+  "persistSession": false,
+  "autoRefreshToken": false,
+  "detectSessionInUrl": false,
+  "storage": "process-memory-only",
+  "maximumSignInAttempts": 1,
+  "maximumIdentityChecks": 1,
+  "maximumSessionUseMs": 1800000,
+  "minimumRemainingLifetimeSeconds": 120,
+  "retries": 0,
+  "redirects": 0
+}

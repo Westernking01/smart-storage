@@ -1,0 +1,56 @@
+{
+  "task": "1.4A.6",
+  "date": "2026-10-12",
+  "source": "experiments/storage/setup/storage-policies.review.sql",
+  "sourceSha256": "4ffee7288a08a5af6e669724a6126c72bc0c11b0ab7840793b36e0b75d83f193",
+  "deploymentCopy": "experiments/storage/setup/storage-policies.deploy.sql",
+  "deploymentSha256": "966496ece3762bc97333760bfc28f4b3ee833f2c6e06a5858e28528aee7accd8",
+  "authorization": "NOT_GRANTED",
+  "execution": "NOT_EXECUTED",
+  "differences": [
+    {
+      "kind": "header-replacement",
+      "removed": "-- REVIEW ONLY: Task 1.4A.3. Not a production migration. DO NOT EXECUTE.\n-- Explicit deployment approval must authorize removing the first guard and\n-- replacing terminal ROLLBACK with COMMIT in a separately reviewed execution copy.\n-- UUIDs below are nonsecret identifiers validated against protected local storage.\n-- No grants, global settings, Storage metadata inserts, functions or app tables.\n-- Task 1.4A.4: read-only expression planning passed; CREATE POLICY/DO blocks\n-- have NOT been executed or fully PostgreSQL-parsed. Runtime readiness is blocked.\n-- Upstream TUS HEAD skips its inner upload RLS probe: tus.upload.get in these\n-- arrays does not establish owner-bound HEAD. Verify deployed outer auth/resource\n-- handling separately. Completion uses privileged writes plus a caller probe;\n-- do not add permissive UPDATE to support provider-internal metadata changes.\n",
+      "added": "-- DEVELOPMENT-ONLY DEPLOYMENT CANDIDATE: Task 1.4A.6.\n-- Execution requires separate explicit user approval; NOT AUTHORIZED YET.\n-- Scope: exactly four reviewed storage.objects policies for the verified\n-- private smart-storage-feasibility bucket and fixed twelve-path experiment.\n-- Derived from unchanged validated storage-policies.review.sql.\n-- Only review guard removed, terminal ROLLBACK changed to COMMIT, header updated.\n-- Use one transaction with an approved owner-capable SQL executor; do not bypass\n-- read-only MCP. No grants, settings, objects, Auth changes or provider tests.\n-- TUS runtime/HEAD ownership and quota release blockers remain unverified.\n"
+    },
+    {
+      "kind": "guard-removal",
+      "removed": "DO $review_guard$\nBEGIN\n  RAISE EXCEPTION 'REVIEW ONLY: policy deployment is not authorized';\nEND;\n$review_guard$;\n"
+    },
+    {
+      "kind": "transaction-terminal",
+      "before": "ROLLBACK;",
+      "after": "COMMIT;"
+    }
+  ],
+  "allOtherBodyBytesIdentical": true,
+  "reviewPreserved": true,
+  "policyDefinitionsIdentical": true,
+  "preflightIdentical": true,
+  "parserVersions": {
+    "pg17": 170007,
+    "pg18": 180004
+  },
+  "statementKinds": [
+    "TransactionStmt",
+    "DoStmt",
+    "CreatePolicyStmt",
+    "CreatePolicyStmt",
+    "CreatePolicyStmt",
+    "CreatePolicyStmt",
+    "TransactionStmt"
+  ],
+  "preflightDoBodiesParsed": 1,
+  "preflightExpressionsParsedPg17": 9,
+  "policyNames": [
+    "p14a3_feasibility_insert",
+    "p14a3_feasibility_select",
+    "p14a3_feasibility_delete",
+    "p14a3_feasibility_no_update"
+  ],
+  "limitations": [
+    "PL/pgSQL grammar 18.4; SQL/embedded conditions grammar 17.7; live server 17.11.",
+    "Parsing is not execution-privilege or runtime-TUS proof.",
+    "Current MCP read-only; privileged executor and separate explicit approval required."
+  ]
+}

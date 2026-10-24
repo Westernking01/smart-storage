@@ -1,0 +1,3 @@
+{"request":"rest-A","status":200,"attemptedAllocations":1,"attemptedBodyBytes":474}
+{"request":"download-A","status":200,"attemptedAllocations":1,"attemptedBodyBytes":474}
+{"stopped":true,"code":"DENIAL_NOT_ESTABLISHED","secretsSuppressed":true}

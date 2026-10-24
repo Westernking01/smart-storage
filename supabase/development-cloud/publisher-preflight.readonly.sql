@@ -1,0 +1,32 @@
+\set ON_ERROR_STOP on
+-- Client TLS is enforced before SQL by psql sslmode=verify-full, trusted
+-- sslrootcert and ssl_min_protocol_version=TLSv1.2 (see activation command).
+-- SQL cannot attest to client TLS through a terminating Session Pooler.
+-- pg_stat_ssl describes the pooler-to-PostgreSQL hop, not client-to-pooler TLS.
+\conninfo
+-- Dedicated session only; no transaction/statement pooler. No publication RPCs.
+DISCARD ALL;
+BEGIN READ ONLY;
+SET LOCAL statement_timeout='10s';
+SET LOCAL idle_in_transaction_session_timeout='10s';
+SET LOCAL search_path=pg_catalog;
+DO $$ BEGIN
+ IF session_user<>'ss_dev_cloud_publisher_login' OR current_user<>session_user THEN RAISE EXCEPTION 'Restricted publisher login required'; END IF;
+END $$;
+-- Unchanged shared permission, membership and helper contract audit.
+\ir publisher-permissions.assert.sql
+SET LOCAL ROLE ss_dev_cloud_publisher;
+-- Synthetic subject only: checks local identity plumbing without account lookup,
+-- Auth calls, publication RPCs, application data access or Storage operations.
+SELECT set_config('request.jwt.claim','',true),set_config('request.jwt.claim.sub','',true),set_config('request.jwt.claim.role','',true),set_config('request.jwt.claims','{"sub":"00000000-0000-4000-8000-000000000123","role":"ss_dev_cloud_publisher","is_anonymous":false}',true);
+DO $$ BEGIN
+ IF session_user<>'ss_dev_cloud_publisher_login' OR current_user<>'ss_dev_cloud_publisher' THEN RAISE EXCEPTION 'SET ROLE failed'; END IF;
+ IF current_setting('transaction_read_only')<>'on' THEN RAISE EXCEPTION 'Read-only transaction required'; END IF;
+ IF nullif(current_setting('request.jwt.claim',true),'') IS NOT NULL OR nullif(current_setting('request.jwt.claim.sub',true),'') IS NOT NULL OR nullif(current_setting('request.jwt.claim.role',true),'') IS NOT NULL OR current_setting('request.jwt.claims',true)::jsonb IS DISTINCT FROM '{"sub":"00000000-0000-4000-8000-000000000123","role":"ss_dev_cloud_publisher","is_anonymous":false}'::jsonb THEN RAISE EXCEPTION 'Transaction identity mismatch'; END IF;
+END $$;
+ROLLBACK;
+DO $$ BEGIN
+ IF session_user<>'ss_dev_cloud_publisher_login' OR current_user<>session_user THEN RAISE EXCEPTION 'Login context not restored'; END IF;
+ IF nullif(current_setting('request.jwt.claim',true),'') IS NOT NULL OR nullif(current_setting('request.jwt.claim.sub',true),'') IS NOT NULL OR nullif(current_setting('request.jwt.claim.role',true),'') IS NOT NULL OR nullif(current_setting('request.jwt.claims',true),'') IS NOT NULL THEN RAISE EXCEPTION 'Transaction identity leaked'; END IF;
+END $$;
+SELECT 'publisher read-only permission and session preflight passed; client TLS verified separately' AS result;

@@ -1,0 +1,141 @@
+{
+  "task": "accelerated-1.4B-local-recovery",
+  "observedAt": "2026-10-12T16:18:02.331Z",
+  "aclValidatorPassed": true,
+  "run": "p14b-20261011-c40e8e03",
+  "attemptedAllocations": 1,
+  "attemptedBodyBytes": 474,
+  "halted": "DENIAL_NOT_ESTABLISHED",
+  "continuationBlocked": false,
+  "reconciledStages": ["cross-read-B"],
+  "requests": [
+    {
+      "id": "login-A",
+      "actor": "A",
+      "slot": null,
+      "method": "POST",
+      "purpose": "login",
+      "allocationAttempt": 0,
+      "bodyBytes": 109,
+      "cumulativeBytes": 109,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "identity-A",
+      "actor": "A",
+      "slot": null,
+      "method": "GET",
+      "purpose": "identity",
+      "allocationAttempt": 0,
+      "bodyBytes": 0,
+      "cumulativeBytes": 109,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "login-B",
+      "actor": "B",
+      "slot": null,
+      "method": "POST",
+      "purpose": "login",
+      "allocationAttempt": 0,
+      "bodyBytes": 109,
+      "cumulativeBytes": 218,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "identity-B",
+      "actor": "B",
+      "slot": null,
+      "method": "GET",
+      "purpose": "identity",
+      "allocationAttempt": 0,
+      "bodyBytes": 0,
+      "cumulativeBytes": 218,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "rest-A",
+      "actor": "A",
+      "slot": 0,
+      "method": "POST",
+      "purpose": "rest-upload",
+      "allocationAttempt": 1,
+      "bodyBytes": 256,
+      "cumulativeBytes": 474,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "download-A",
+      "actor": "A",
+      "slot": 0,
+      "method": "GET",
+      "purpose": "download",
+      "allocationAttempt": 1,
+      "bodyBytes": 0,
+      "cumulativeBytes": 474,
+      "status": 200,
+      "state": "completed",
+      "cleanup": "not-eligible"
+    },
+    {
+      "id": "cross-read-B",
+      "actor": "B",
+      "slot": 0,
+      "method": "GET",
+      "purpose": "cross-read",
+      "allocationAttempt": 1,
+      "bodyBytes": 0,
+      "cumulativeBytes": 474,
+      "status": 400,
+      "state": "failed",
+      "cleanup": "not-eligible"
+    }
+  ],
+  "originalEntriesPreserved": true,
+  "originalJournalPrefixPreserved": true,
+  "markerPreserved": true,
+  "reconciliationCount": 1,
+  "remainingFirstWave": {
+    "allocationAttempts": 2,
+    "attemptedBodyBytes": 6325062
+  },
+  "continuation": {
+    "stages": [
+      "wrong-owner-B",
+      "anonymous-read",
+      "tus-create-A",
+      "tus-head-zero",
+      "tus-part-first",
+      "tus-head-recovery",
+      "tus-part-tail",
+      "tus-head-complete",
+      "owner-info-rest",
+      "owner-info-tus"
+    ],
+    "allocationAttempts": 2,
+    "maximumBodyBytes": 6292512
+  },
+  "approval": {
+    "scopeMatch": true,
+    "expiresAt": "2026-10-12T16:04:01.423Z",
+    "expired": true,
+    "modified": false,
+    "replacementCreated": false
+  },
+  "storedSessionsValidForAtLeast10Minutes": {
+    "A": true,
+    "B": true
+  },
+  "providerRequests": 0,
+  "cleanupPerformed": false
+}

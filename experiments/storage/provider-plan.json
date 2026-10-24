@@ -1,0 +1,67 @@
+{
+  "status": "DISABLED_REQUIRES_TASK_1_4B_APPROVAL",
+  "remoteWritesAllowed": false,
+  "bucket": "smart-storage-feasibility",
+  "maximumUploadAllocations": 12,
+  "maximumAttemptedRequestBodyBytes": 33554432,
+  "initialConcurrency": 1,
+  "providerObjectLimitBytes": 8388608,
+  "transportChunkBytes": 6291456,
+  "scenarios": [
+    {
+      "id": "P01",
+      "gate": "T-05",
+      "check": "Create small/empty/gzip objects; inspect creation status and final length"
+    },
+    {
+      "id": "P02",
+      "gate": "T-05",
+      "check": "Upload raw 8 MiB as 6+2; inspect browser CORS and headers"
+    },
+    {
+      "id": "P03",
+      "gate": "T-05/T-06",
+      "check": "Interrupt/discard PATCH response; HEAD; replay exact staged bytes"
+    },
+    {
+      "id": "P04",
+      "gate": "T-07",
+      "check": "Inspect no-upsert collisions; resource expiry; canceled/late writes"
+    },
+    {
+      "id": "P05",
+      "gate": "T-06/T-08",
+      "check": "JWT expiry and verified refresh without printing sessions"
+    },
+    {
+      "id": "P06",
+      "gate": "T-08",
+      "check": "User B/anonymous read, write, HEAD, delete against A exact paths"
+    },
+    {
+      "id": "P07",
+      "gate": "T-10",
+      "check": "Declared/body/bucket limits; reserved-minus/exact/plus; forged metadata"
+    },
+    {
+      "id": "P08",
+      "gate": "T-10",
+      "check": "Separately approved parallel resources/paths, capability replay and alternate upload methods"
+    },
+    {
+      "id": "P09",
+      "gate": "T-07/T-14",
+      "check": "Trusted observed size, physical deletion and incomplete-resource cleanup"
+    }
+  ],
+  "executionRules": [
+    "No executor is enabled; running local tests must never trigger remote writes",
+    "Count every creation/alternate allocation attempt before sending, including failures and retries",
+    "Count all non-empty request bodies including Auth, control JSON and replayed PATCH data conservatively",
+    "Stop before sending any request that exceeds remaining allocation/body budgets",
+    "Select a staged subset across runs; the entire matrix may not fit one 12-allocation run",
+    "Do not add concurrency or lifetime/capability probes without explicit scenario approval",
+    "Stop on oversize acceptance or unexpected path allocation",
+    "Cleanup only exact ledger-owned bucket/path pairs, after outstanding attempts are reconciled"
+  ]
+}

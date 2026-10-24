@@ -1,0 +1,122 @@
+{
+  "phase": "2.14H FINAL",
+  "provisionedAt": "2026-10-16T13:31:39.331Z",
+  "target": "127.0.0.1:5432/smart_storage_gateway_test",
+  "role": "ss_gateway_runtime_test",
+  "backup": "C:/ProgramData/SmartStoragePgTest/pg_hba.pre-214h-final-2026-10-16T13-31-38-197Z.bak",
+  "addedHbaRules": [
+    "# Smart Storage Phase 2.14H restricted runtime",
+    "host smart_storage_gateway_test ss_gateway_runtime_test 127.0.0.1/32 scram-sha-256",
+    "host all ss_gateway_runtime_test 0.0.0.0/0 reject",
+    "host all ss_gateway_runtime_test ::0/0 reject",
+    "local all ss_gateway_runtime_test reject"
+  ],
+  "membership": {
+    "role": "ss_gateway_executor",
+    "admin": false,
+    "inherit": false,
+    "set": true
+  },
+  "databaseAcl": "PUBLIC CONNECT/TEMP revoked; runtime CONNECT granted; postgres owner remains",
+  "roleSetting": "search_path='' on target only",
+  "effectiveFileRules": [
+    {
+      "rule_number": 1,
+      "type": "host",
+      "database": ["smart_storage_gateway_test"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 2,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "0.0.0.0",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 3,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "::",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 4,
+      "type": "local",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": null,
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 5,
+      "type": "local",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 6,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 7,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 8,
+      "type": "local",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 9,
+      "type": "host",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 10,
+      "type": "host",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    }
+  ],
+  "cleanup": "Separate authorization: remove exact added HBA lines/reload; disable/drop new login after dependency/session review; revoke new membership/CONNECT/settings; restore reviewed original PUBLIC ACL. Preserve all historical fixtures.",
+  "passwordAtProvisioning": "UNSET: user interactive psql password required",
+  "finalAuthentication": {
+    "status": "VERIFIED independent restricted runtime login",
+    "credentialSetup": "User interactive psql password; external protected runtime passfile consumed only by psql",
+    "evidence": "gateway-214h-final-integration-results.json",
+    "agentReadPassword": false
+  }
+}

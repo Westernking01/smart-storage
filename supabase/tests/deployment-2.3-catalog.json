@@ -1,0 +1,2359 @@
+{
+  "projectReference": "fneuqneqaopkmpeevlqz",
+  "catalog": {
+    "tables": [
+      {
+        "rls": false,
+        "name": "account_policy",
+        "schema": "app_private",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": false,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "attempt_requests",
+        "schema": "app_private",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": false,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "cleanup_jobs",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": false,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "file_blocks",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "file_manifests",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "files",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "profiles",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "transfer_attempts",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "upload_sessions",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "usage_events",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      },
+      {
+        "rls": true,
+        "name": "user_usage",
+        "schema": "public",
+        "anon_write": false,
+        "anon_select": false,
+        "auth_delete": false,
+        "auth_insert": false,
+        "auth_select": true,
+        "auth_update": false
+      }
+    ],
+    "columns": [
+      {
+        "name": "singleton",
+        "type": "boolean",
+        "table": "account_policy",
+        "schema": "app_private",
+        "default": "true",
+        "notnull": true
+      },
+      {
+        "name": "quota_bytes",
+        "type": "bigint",
+        "table": "account_policy",
+        "schema": "app_private",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "max_slots",
+        "type": "integer",
+        "table": "account_policy",
+        "schema": "app_private",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "request_id",
+        "type": "uuid",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "attempt_id",
+        "type": "uuid",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "body_bytes",
+        "type": "bigint",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "default": "'reserved'::text",
+        "notnull": true
+      },
+      {
+        "name": "acknowledged_offset",
+        "type": "bigint",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": "gen_random_uuid()",
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "session_id",
+        "type": "uuid",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "file_id",
+        "type": "uuid",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "kind",
+        "type": "text",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": "'queued'::text",
+        "notnull": true
+      },
+      {
+        "name": "attempts",
+        "type": "integer",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "lease_epoch",
+        "type": "bigint",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "lease_until",
+        "type": "timestamp with time zone",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "next_attempt_at",
+        "type": "timestamp with time zone",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "last_error_code",
+        "type": "text",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": "gen_random_uuid()",
+        "notnull": true
+      },
+      {
+        "name": "file_id",
+        "type": "uuid",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "session_id",
+        "type": "uuid",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "block_index",
+        "type": "integer",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "original_offset",
+        "type": "bigint",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "original_bytes",
+        "type": "bigint",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "encoded_bytes",
+        "type": "bigint",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "codec",
+        "type": "text",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "original_sha256",
+        "type": "text",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "encoded_sha256",
+        "type": "text",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "table": "file_blocks",
+        "schema": "public",
+        "default": "'allocated'::text",
+        "notnull": true
+      },
+      {
+        "name": "file_id",
+        "type": "uuid",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "session_id",
+        "type": "uuid",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "manifest",
+        "type": "jsonb",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "sha256",
+        "type": "text",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "object_path",
+        "type": "text",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "observed_bytes",
+        "type": "bigint",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "provider_verified_at",
+        "type": "timestamp with time zone",
+        "table": "file_manifests",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "files",
+        "schema": "public",
+        "default": "gen_random_uuid()",
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "original_name",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "display_name",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "original_mime",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "category",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": "'other'::text",
+        "notnull": true
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": "'uploading'::text",
+        "notnull": true
+      },
+      {
+        "name": "original_bytes",
+        "type": "bigint",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "encoded_payload_bytes",
+        "type": "bigint",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "manifest_bytes",
+        "type": "bigint",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "stored_bytes",
+        "type": "bigint",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "source_sha256",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "manifest_sha256",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "manifest_path",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "format",
+        "type": "text",
+        "table": "files",
+        "schema": "public",
+        "default": "'compression-spike'::text",
+        "notnull": true
+      },
+      {
+        "name": "format_version",
+        "type": "integer",
+        "table": "files",
+        "schema": "public",
+        "default": "1",
+        "notnull": true
+      },
+      {
+        "name": "block_count",
+        "type": "integer",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "revision",
+        "type": "bigint",
+        "table": "files",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "files",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "ready_at",
+        "type": "timestamp with time zone",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "deleted_at",
+        "type": "timestamp with time zone",
+        "table": "files",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "profiles",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "display_name",
+        "type": "text",
+        "table": "profiles",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "profiles",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": "gen_random_uuid()",
+        "notnull": true
+      },
+      {
+        "name": "block_id",
+        "type": "uuid",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "session_id",
+        "type": "uuid",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "attempt_number",
+        "type": "integer",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": "1",
+        "notnull": true
+      },
+      {
+        "name": "epoch",
+        "type": "bigint",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "object_path",
+        "type": "text",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "authorized_max_bytes",
+        "type": "bigint",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "attempted_bytes",
+        "type": "bigint",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "acknowledged_bytes",
+        "type": "bigint",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "observed_bytes",
+        "type": "bigint",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": "'authorized'::text",
+        "notnull": true
+      },
+      {
+        "name": "provider_verified_at",
+        "type": "timestamp with time zone",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "expires_at",
+        "type": "timestamp with time zone",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": "gen_random_uuid()",
+        "notnull": true
+      },
+      {
+        "name": "file_id",
+        "type": "uuid",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "idempotency_key",
+        "type": "text",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "request_digest",
+        "type": "text",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": "'reserved'::text",
+        "notnull": true
+      },
+      {
+        "name": "held_bytes",
+        "type": "bigint",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "slot_held",
+        "type": "boolean",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": "true",
+        "notnull": true
+      },
+      {
+        "name": "epoch",
+        "type": "bigint",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": "1",
+        "notnull": true
+      },
+      {
+        "name": "lease_expires_at",
+        "type": "timestamp with time zone",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "cleanup_after",
+        "type": "timestamp with time zone",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "initial_source_sha256",
+        "type": "text",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "terminal_reason",
+        "type": "text",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "manifest_path",
+        "type": "text",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "revision",
+        "type": "bigint",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "table": "upload_sessions",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "table": "usage_events",
+        "schema": "public",
+        "default": "gen_random_uuid()",
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "usage_events",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "session_id",
+        "type": "uuid",
+        "table": "usage_events",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "file_id",
+        "type": "uuid",
+        "table": "usage_events",
+        "schema": "public",
+        "default": null,
+        "notnull": false
+      },
+      {
+        "name": "event_key",
+        "type": "text",
+        "table": "usage_events",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "kind",
+        "type": "text",
+        "table": "usage_events",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "stored_delta",
+        "type": "bigint",
+        "table": "usage_events",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "reserved_delta",
+        "type": "bigint",
+        "table": "usage_events",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "slot_delta",
+        "type": "integer",
+        "table": "usage_events",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "table": "usage_events",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      },
+      {
+        "name": "owner_id",
+        "type": "uuid",
+        "table": "user_usage",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "quota_bytes",
+        "type": "bigint",
+        "table": "user_usage",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "stored_bytes",
+        "type": "bigint",
+        "table": "user_usage",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "reserved_bytes",
+        "type": "bigint",
+        "table": "user_usage",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "active_slots",
+        "type": "integer",
+        "table": "user_usage",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "max_slots",
+        "type": "integer",
+        "table": "user_usage",
+        "schema": "public",
+        "default": null,
+        "notnull": true
+      },
+      {
+        "name": "historical_original_bytes",
+        "type": "bigint",
+        "table": "user_usage",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "historical_stored_bytes",
+        "type": "bigint",
+        "table": "user_usage",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "revision",
+        "type": "bigint",
+        "table": "user_usage",
+        "schema": "public",
+        "default": "0",
+        "notnull": true
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "table": "user_usage",
+        "schema": "public",
+        "default": "now()",
+        "notnull": true
+      }
+    ],
+    "indexes": [
+      {
+        "name": "account_policy_pkey",
+        "table": "account_policy",
+        "schema": "app_private",
+        "definition": "CREATE UNIQUE INDEX account_policy_pkey ON app_private.account_policy USING btree (singleton)"
+      },
+      {
+        "name": "attempt_requests_pkey",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "definition": "CREATE UNIQUE INDEX attempt_requests_pkey ON app_private.attempt_requests USING btree (request_id)"
+      },
+      {
+        "name": "cleanup_due",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CREATE INDEX cleanup_due ON public.cleanup_jobs USING btree (state, next_attempt_at)"
+      },
+      {
+        "name": "cleanup_jobs_pkey",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX cleanup_jobs_pkey ON public.cleanup_jobs USING btree (id)"
+      },
+      {
+        "name": "cleanup_unique_file",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX cleanup_unique_file ON public.cleanup_jobs USING btree (file_id, kind) WHERE (state <> 'done'::text)"
+      },
+      {
+        "name": "cleanup_unique_session",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX cleanup_unique_session ON public.cleanup_jobs USING btree (session_id, kind) WHERE (state <> 'done'::text)"
+      },
+      {
+        "name": "file_blocks_file_id_block_index_key",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX file_blocks_file_id_block_index_key ON public.file_blocks USING btree (file_id, block_index)"
+      },
+      {
+        "name": "file_blocks_id_session_id_owner_id_key",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX file_blocks_id_session_id_owner_id_key ON public.file_blocks USING btree (id, session_id, owner_id)"
+      },
+      {
+        "name": "file_blocks_pkey",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX file_blocks_pkey ON public.file_blocks USING btree (id)"
+      },
+      {
+        "name": "file_manifests_object_path_key",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX file_manifests_object_path_key ON public.file_manifests USING btree (object_path)"
+      },
+      {
+        "name": "file_manifests_pkey",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX file_manifests_pkey ON public.file_manifests USING btree (file_id)"
+      },
+      {
+        "name": "files_id_owner_id_key",
+        "table": "files",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX files_id_owner_id_key ON public.files USING btree (id, owner_id)"
+      },
+      {
+        "name": "files_manifest_path_key",
+        "table": "files",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX files_manifest_path_key ON public.files USING btree (manifest_path)"
+      },
+      {
+        "name": "files_owner_page",
+        "table": "files",
+        "schema": "public",
+        "definition": "CREATE INDEX files_owner_page ON public.files USING btree (owner_id, created_at DESC, id DESC) WHERE (state = 'ready'::text)"
+      },
+      {
+        "name": "files_pkey",
+        "table": "files",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX files_pkey ON public.files USING btree (id)"
+      },
+      {
+        "name": "profiles_pkey",
+        "table": "profiles",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX profiles_pkey ON public.profiles USING btree (id)"
+      },
+      {
+        "name": "attempts_session_state",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CREATE INDEX attempts_session_state ON public.transfer_attempts USING btree (session_id, state)"
+      },
+      {
+        "name": "transfer_attempts_block_id_attempt_number_key",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX transfer_attempts_block_id_attempt_number_key ON public.transfer_attempts USING btree (block_id, attempt_number)"
+      },
+      {
+        "name": "transfer_attempts_object_path_key",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX transfer_attempts_object_path_key ON public.transfer_attempts USING btree (object_path)"
+      },
+      {
+        "name": "transfer_attempts_pkey",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX transfer_attempts_pkey ON public.transfer_attempts USING btree (id)"
+      },
+      {
+        "name": "sessions_expiry",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE INDEX sessions_expiry ON public.upload_sessions USING btree (state, lease_expires_at)"
+      },
+      {
+        "name": "sessions_one_unsettled_file",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX sessions_one_unsettled_file ON public.upload_sessions USING btree (file_id) WHERE (state <> 'settled'::text)"
+      },
+      {
+        "name": "sessions_owner",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE INDEX sessions_owner ON public.upload_sessions USING btree (owner_id, created_at DESC, id DESC)"
+      },
+      {
+        "name": "upload_sessions_id_file_id_owner_id_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX upload_sessions_id_file_id_owner_id_key ON public.upload_sessions USING btree (id, file_id, owner_id)"
+      },
+      {
+        "name": "upload_sessions_id_owner_id_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX upload_sessions_id_owner_id_key ON public.upload_sessions USING btree (id, owner_id)"
+      },
+      {
+        "name": "upload_sessions_manifest_path_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX upload_sessions_manifest_path_key ON public.upload_sessions USING btree (manifest_path)"
+      },
+      {
+        "name": "upload_sessions_owner_id_idempotency_key_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX upload_sessions_owner_id_idempotency_key_key ON public.upload_sessions USING btree (owner_id, idempotency_key)"
+      },
+      {
+        "name": "upload_sessions_pkey",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX upload_sessions_pkey ON public.upload_sessions USING btree (id)"
+      },
+      {
+        "name": "usage_events_owner_id_event_key_key",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX usage_events_owner_id_event_key_key ON public.usage_events USING btree (owner_id, event_key)"
+      },
+      {
+        "name": "usage_events_pkey",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX usage_events_pkey ON public.usage_events USING btree (id)"
+      },
+      {
+        "name": "user_usage_pkey",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CREATE UNIQUE INDEX user_usage_pkey ON public.user_usage USING btree (owner_id)"
+      }
+    ],
+    "policies": [
+      {
+        "mode": "PERMISSIVE",
+        "name": "owner_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "file_blocks",
+        "using": "(owner_id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      },
+      {
+        "mode": "PERMISSIVE",
+        "name": "owner_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "file_manifests",
+        "using": "(owner_id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      },
+      {
+        "mode": "PERMISSIVE",
+        "name": "owner_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "files",
+        "using": "(owner_id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      },
+      {
+        "mode": "PERMISSIVE",
+        "name": "profile_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "profiles",
+        "using": "(id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      },
+      {
+        "mode": "PERMISSIVE",
+        "name": "owner_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "transfer_attempts",
+        "using": "(owner_id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      },
+      {
+        "mode": "PERMISSIVE",
+        "name": "owner_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "upload_sessions",
+        "using": "(owner_id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      },
+      {
+        "mode": "PERMISSIVE",
+        "name": "owner_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "usage_events",
+        "using": "(owner_id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      },
+      {
+        "mode": "PERMISSIVE",
+        "name": "owner_read",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "user_usage",
+        "using": "(owner_id = ( SELECT app_private.actor() AS actor))",
+        "schema": "public",
+        "command": "SELECT"
+      }
+    ],
+    "triggers": [
+      {
+        "name": "owner_immutable",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.cleanup_jobs FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      },
+      {
+        "name": "owner_immutable",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.file_blocks FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      },
+      {
+        "name": "owner_immutable",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.file_manifests FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      },
+      {
+        "name": "file_transition",
+        "table": "files",
+        "schema": "public",
+        "definition": "CREATE TRIGGER file_transition BEFORE UPDATE ON public.files FOR EACH ROW EXECUTE FUNCTION app_private.file_transition()"
+      },
+      {
+        "name": "owner_immutable",
+        "table": "files",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.files FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      },
+      {
+        "name": "attempt_counters",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CREATE TRIGGER attempt_counters BEFORE UPDATE ON public.transfer_attempts FOR EACH ROW EXECUTE FUNCTION app_private.attempt_counters()"
+      },
+      {
+        "name": "owner_immutable",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.transfer_attempts FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      },
+      {
+        "name": "owner_immutable",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.upload_sessions FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      },
+      {
+        "name": "owner_immutable",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.usage_events FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      },
+      {
+        "name": "owner_immutable",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CREATE TRIGGER owner_immutable BEFORE UPDATE ON public.user_usage FOR EACH ROW EXECUTE FUNCTION app_private.owner_immutable()"
+      }
+    ],
+    "functions": [
+      {
+        "name": "actor",
+        "config": ["search_path=\"\""],
+        "result": "uuid",
+        "schema": "app_private",
+        "source": "\ndeclare a uuid := auth.uid(); begin\n  if a is null or coalesce((auth.jwt()->>'is_anonymous')::boolean,false) or auth.jwt()->>'role' is distinct from 'authenticated' then raise exception 'UNAUTHENTICATED'; end if;\n  return a;\nend ",
+        "definer": false,
+        "language": "plpgsql",
+        "arguments": "",
+        "volatility": "s",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "attempt_counters",
+        "config": ["search_path=\"\""],
+        "result": "trigger",
+        "schema": "app_private",
+        "source": "\nbegin\n  if new.attempted_bytes<old.attempted_bytes or new.acknowledged_bytes<old.acknowledged_bytes or (old.id,old.block_id,old.session_id,old.owner_id,old.epoch,old.object_path,old.authorized_max_bytes) is distinct from (new.id,new.block_id,new.session_id,new.owner_id,new.epoch,new.object_path,new.authorized_max_bytes) then raise exception 'ATTEMPT_HISTORY_IMMUTABLE'; end if;\n  return new;\nend ",
+        "definer": false,
+        "language": "plpgsql",
+        "arguments": "",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "file_json",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "app_private",
+        "source": "\n select jsonb_build_object('id',f.id,'displayName',f.display_name,'originalName',f.original_name,'originalMime',f.original_mime,'category',f.category,'state',f.state,'originalBytes',f.original_bytes::text,'encodedBytes',f.encoded_payload_bytes::text,'manifestBytes',f.manifest_bytes::text,'storedBytes',f.stored_bytes::text,'createdAt',f.created_at,'revision',f.revision)\n",
+        "definer": false,
+        "language": "sql",
+        "arguments": "f files",
+        "volatility": "s",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "file_transition",
+        "config": ["search_path=\"\""],
+        "result": "trigger",
+        "schema": "app_private",
+        "source": "\nbegin\n  if (old.id,old.owner_id,old.original_name,old.original_mime,old.original_bytes,old.source_sha256,old.format,old.format_version,old.created_at) is distinct from (new.id,new.owner_id,new.original_name,new.original_mime,new.original_bytes,new.source_sha256,new.format,new.format_version,new.created_at) then raise exception 'FILE_SOURCE_IMMUTABLE'; end if;\n  if old.state<>new.state and not ((old.state='uploading' and new.state in('ready','failed','deleting')) or (old.state in('ready','failed') and new.state='deleting') or (old.state='deleting' and new.state='deleted')) then raise exception 'FILE_TRANSITION_INVALID'; end if;\n  return new;\nend ",
+        "definer": false,
+        "language": "plpgsql",
+        "arguments": "",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "owner_immutable",
+        "config": ["search_path=\"\""],
+        "result": "trigger",
+        "schema": "app_private",
+        "source": "\nbegin\n  if old.owner_id is distinct from new.owner_id then raise exception 'OWNER_IMMUTABLE'; end if;\n  return new;\nend ",
+        "definer": false,
+        "language": "plpgsql",
+        "arguments": "",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "valid_name",
+        "config": ["search_path=\"\""],
+        "result": "boolean",
+        "schema": "app_private",
+        "source": "\n  select v is not null and octet_length(v) between 1 and 255 and btrim(v)<>'' and v not in('.','..') and v !~ '[[:cntrl:]/\\\\]' and v !~ '[‪-‮⁦-⁩]'\n",
+        "definer": false,
+        "language": "sql",
+        "arguments": "v text",
+        "volatility": "i",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "ss_account",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid := app_private.actor(); u public.user_usage; begin\n  select * into u from public.user_usage where owner_id=a;\n  if not found then return jsonb_build_object('id',a,'needsBootstrap',true); end if;\n  return jsonb_build_object('id',a,'needsBootstrap',false,'usage',jsonb_build_object('quotaBytes',u.quota_bytes::text,'storedBytes',u.stored_bytes::text,'reservedBytes',u.reserved_bytes::text,'activeSlots',u.active_slots,'maxSlots',u.max_slots,'historicalOriginalBytes',u.historical_original_bytes::text,'historicalStoredBytes',u.historical_stored_bytes::text));\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_allocate_attempt",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid:=app_private.actor(); s public.upload_sessions; f public.files; b public.file_blocks; attempt uuid:=gen_random_uuid(); number integer; path text; begin\n  perform 1 from public.user_usage where owner_id=a for update;\n  select * into s from public.upload_sessions where id=p_session and owner_id=a for update;\n  if not found then raise exception 'NOT_FOUND'; end if;\n  if s.state='reconciling' then raise exception 'AMBIGUOUS_ATTEMPT_LOCKED'; end if;\n  if s.state not in('reserved','uploading') or s.lease_expires_at<=now() then raise exception 'SESSION_EXPIRED_OR_BLOCKED'; end if;\n  select * into strict f from public.files where id=s.file_id and owner_id=a for update;\n  if p_index is null or p_index<0 or p_index>=greatest(1,(f.original_bytes+8388607)/8388608) or p_original is distinct from least(8388608,f.original_bytes-p_index::bigint*8388608) then raise exception 'INVALID_BLOCK'; end if;\n  if exists(select 1 from public.transfer_attempts where session_id=s.id and state in('authorized','in_flight','ambiguous')) then raise exception 'AMBIGUOUS_ATTEMPT_LOCKED'; end if;\n  select * into b from public.file_blocks where file_id=f.id and block_index=p_index for update;\n  if not found then\n    insert into public.file_blocks(file_id,session_id,owner_id,block_index,original_offset,original_bytes,encoded_bytes,codec,original_sha256,encoded_sha256)\n    values(f.id,s.id,a,p_index,p_index::bigint*8388608,p_original,p_encoded,p_codec,p_original_hash,p_encoded_hash) returning * into b;\n  elsif b.encoded_bytes is distinct from p_encoded or b.codec is distinct from p_codec or b.original_sha256 is distinct from p_original_hash or b.encoded_sha256 is distinct from p_encoded_hash then raise exception 'BLOCK_IMMUTABLE';\n  end if;\n  if exists(select 1 from public.transfer_attempts where block_id=b.id and state<>'settled') then raise exception 'AMBIGUOUS_ATTEMPT_LOCKED'; end if;\n  select coalesce(max(attempt_number),0)+1 into number from public.transfer_attempts where block_id=b.id;\n  if number>2 then raise exception 'ATTEMPT_LIMIT'; end if;\n  path:='v1/'||a||'/'||f.id||'/'||s.id||'/'||s.epoch||'/'||p_index||'/'||attempt||'.bin';\n  insert into public.transfer_attempts(id,block_id,session_id,owner_id,attempt_number,epoch,object_path,authorized_max_bytes,expires_at) values(attempt,b.id,s.id,a,number,s.epoch,path,p_encoded,s.lease_expires_at);\n  update public.upload_sessions set state='uploading',revision=revision+1,updated_at=now() where id=s.id;\n  return jsonb_build_object('id',attempt,'path',path,'epoch',s.epoch,'authorizedBytes',p_encoded::text,'storageAuthorityEnabled',false);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_session uuid, p_index integer, p_original bigint, p_encoded bigint, p_codec text, p_original_hash text, p_encoded_hash text",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_begin_attempt_request",
+        "config": ["search_path=\"\""],
+        "result": "void",
+        "schema": "public",
+        "source": "\ndeclare a public.transfer_attempts; s public.upload_sessions; r app_private.attempt_requests; begin\n  select * into strict a from public.transfer_attempts where id=p_attempt;\n  perform 1 from public.user_usage where owner_id=a.owner_id for update;\n  select * into strict s from public.upload_sessions where id=a.session_id for update;\n  select * into strict a from public.transfer_attempts where id=p_attempt for update;\n  select * into r from app_private.attempt_requests where request_id=p_request;\n  if found then raise exception 'REQUEST_REPLAY_REQUIRES_INSPECTION'; end if;\n  if s.state<>'uploading' or s.epoch is distinct from p_epoch or a.epoch is distinct from p_epoch or s.lease_expires_at<=now() or a.state not in('authorized','in_flight') or exists(select 1 from app_private.attempt_requests where attempt_id=a.id and state in('reserved','ambiguous')) then raise exception 'ATTEMPT_BLOCKED'; end if;\n  if p_body is null or p_body<=0 or p_body>6291456 or a.acknowledged_bytes::numeric+p_body::numeric>a.authorized_max_bytes::numeric or a.attempted_bytes::numeric+p_body::numeric>9223372036854775807 then raise exception 'INVALID_BODY'; end if;\n  insert into app_private.attempt_requests(request_id,attempt_id,body_bytes) values(p_request,a.id,p_body);\n  update public.transfer_attempts set attempted_bytes=attempted_bytes+p_body,state='in_flight' where id=a.id;\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_attempt uuid, p_epoch bigint, p_request uuid, p_body bigint",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "ss_bootstrap",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid := app_private.actor(); p app_private.account_policy; begin\n  select * into strict p from app_private.account_policy where singleton;\n  insert into public.profiles(id) values(a) on conflict do nothing;\n  insert into public.user_usage(owner_id,quota_bytes,max_slots) values(a,p.quota_bytes,p.max_slots) on conflict do nothing;\n  return jsonb_build_object('id',a);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_cancel",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid:=app_private.actor(); s public.upload_sessions; begin\n  perform 1 from public.user_usage where owner_id=a for update;\n  select * into s from public.upload_sessions where id=p_session and owner_id=a for update;\n  if not found then raise exception 'NOT_FOUND'; end if;\n  if s.state='completed' then raise exception 'ALREADY_COMPLETED_USE_DELETE'; end if;\n  if s.state not in('cancelling','expired','settled') then\n    update public.upload_sessions set state='cancelling',epoch=epoch+1,cleanup_after=now(),revision=revision+1,updated_at=now() where id=s.id;\n    update public.files set state='deleting',revision=revision+1,deleted_at=now() where id=s.file_id;\n    insert into public.cleanup_jobs(owner_id,session_id,file_id,kind) values(a,s.id,s.file_id,'cancel') on conflict do nothing;\n  end if;\n  return jsonb_build_object('state',case when s.state='settled' then 'settled' else 'cancelling' end,'capacityReleased',false);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_session uuid",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_delete_file",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid := app_private.actor(); f public.files; s public.upload_sessions; begin\n  perform 1 from public.user_usage where owner_id=a for update;\n  select * into s from public.upload_sessions where file_id=p_id and owner_id=a for update;\n  select * into f from public.files where id=p_id and owner_id=a for update;\n  if not found or f.state not in('ready','deleting','deleted') then raise exception 'NOT_FOUND'; end if;\n  if f.state='ready' then\n    update public.files set state='deleting',deleted_at=now(),revision=revision+1 where id=f.id;\n    insert into public.cleanup_jobs(owner_id,session_id,file_id,kind) values(a,s.id,f.id,'delete') on conflict do nothing;\n  end if;\n  return jsonb_build_object('state',case when f.state='deleted' then 'deleted' else 'deleting' end);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_id uuid",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_edit_file",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid := app_private.actor(); f public.files; begin\n  if not app_private.valid_name(p_name) or p_category is null or p_category not in('document','image','video','audio','archive','other') then raise exception 'INVALID_INPUT'; end if;\n  select * into f from public.files where id=p_id and owner_id=a for update;\n  if not found or f.state<>'ready' then raise exception 'NOT_FOUND'; end if;\n  if f.revision is distinct from p_revision then raise exception 'REVISION_CONFLICT'; end if;\n  update public.files set display_name=p_name,category=p_category,revision=revision+1 where id=f.id returning * into f;\n  return app_private.file_json(f);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_id uuid, p_name text, p_category text, p_revision bigint",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_expire",
+        "config": ["search_path=\"\""],
+        "result": "void",
+        "schema": "public",
+        "source": "\ndeclare s public.upload_sessions; begin\n  select * into strict s from public.upload_sessions where id=p_session;\n  perform 1 from public.user_usage where owner_id=s.owner_id for update;\n  select * into strict s from public.upload_sessions where id=p_session for update;\n  if s.lease_expires_at>now() then raise exception 'NOT_EXPIRED'; end if;\n  if s.state in('reserved','uploading','reconciling') then\n    update public.upload_sessions set state='expired',epoch=epoch+1,cleanup_after=now(),revision=revision+1 where id=s.id;\n    update public.files set state='deleting',deleted_at=now(),revision=revision+1 where id=s.file_id;\n    insert into public.cleanup_jobs(owner_id,session_id,file_id,kind) values(s.owner_id,s.id,s.file_id,'cancel') on conflict do nothing;\n  end if;\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_session uuid",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "ss_file",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid := app_private.actor(); f public.files; begin\n  select * into f from public.files where id=p_id and owner_id=a and state='ready';\n  if not found then raise exception 'NOT_FOUND'; end if;\n  return app_private.file_json(f);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_id uuid",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_finalize_verified",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare s public.upload_sessions; f public.files; u public.user_usage; count_blocks integer; payload bigint; actual bigint; b public.file_blocks; d jsonb; begin\n  select * into strict s from public.upload_sessions where id=p_session;\n  select * into strict u from public.user_usage where owner_id=s.owner_id for update;\n  select * into strict s from public.upload_sessions where id=p_session for update;\n  select * into strict f from public.files where id=s.file_id for update;\n  if s.state='completed' then\n    if f.manifest_sha256 is distinct from p_sha256 or f.manifest_path is distinct from p_path or f.manifest_bytes is distinct from p_size or not exists(select 1 from public.file_manifests where file_id=f.id and manifest=p_manifest) then raise exception 'IDEMPOTENCY_CONFLICT'; end if;\n    return app_private.file_json(f);\n  end if;\n  if s.state<>'uploading' or s.lease_expires_at<=now() or f.state<>'uploading' then raise exception 'SESSION_EXPIRED_OR_BLOCKED'; end if;\n  if jsonb_typeof(p_manifest) is distinct from 'object' or (select count(*) from jsonb_object_keys(p_manifest))<>6 then raise exception 'MANIFEST_INVALID'; end if;\n  -- Match the numeric compression-spike envelope; ->> alone also accepts JSON strings.\n  if jsonb_typeof(p_manifest->'version') is distinct from 'number' or jsonb_typeof(p_manifest->'blockSize') is distinct from 'number' or jsonb_typeof(p_manifest->'originalBytes') is distinct from 'number' then raise exception 'MANIFEST_INVALID'; end if;\n  if p_path is distinct from s.manifest_path or p_size is null or p_size not between 1 and 131072 or p_sha256 is null or p_sha256 !~ '^[a-f0-9]{64}$' or p_manifest is null or octet_length(p_manifest::text)>131072 or p_manifest->>'format' is distinct from 'compression-spike' or p_manifest->>'version' is distinct from '1' or p_manifest->>'blockSize' is distinct from '8388608' or p_manifest->>'originalBytes' is distinct from f.original_bytes::text or p_manifest->>'originalSha256' is distinct from f.source_sha256 or jsonb_typeof(p_manifest->'blocks') is distinct from 'array' then raise exception 'MANIFEST_INVALID'; end if;\n  count_blocks:=greatest(1,(f.original_bytes+8388607)/8388608);\n  if jsonb_array_length(p_manifest->'blocks')<>count_blocks or (select count(*) from public.file_blocks where file_id=f.id)<>count_blocks then raise exception 'BLOCKS_INCOMPLETE'; end if;\n  payload:=0;\n  for b in select * from public.file_blocks where file_id=f.id order by block_index for update loop\n    d:=p_manifest->'blocks'->b.block_index;\n    if b.state<>'present' or b.original_offset<>b.block_index::bigint*8388608 or b.original_bytes<>least(8388608,f.original_bytes-b.original_offset) or\n      d is distinct from jsonb_build_object('index',b.block_index,'offset',b.original_offset,'originalBytes',b.original_bytes,'encodedBytes',b.encoded_bytes,'codec',b.codec,'originalSha256',b.original_sha256,'encodedSha256',b.encoded_sha256) or\n      not exists(select 1 from public.transfer_attempts where block_id=b.id and epoch<=s.epoch and state='present' and observed_bytes=b.encoded_bytes and provider_verified_at is not null) then raise exception 'BLOCK_EVIDENCE_INVALID'; end if;\n    payload:=payload+b.encoded_bytes;\n  end loop;\n  -- Old or unfinished resources cannot vanish from held accounting during publication.\n  if exists(select 1 from public.transfer_attempts where session_id=s.id and state not in('present','settled')) then raise exception 'ATTEMPT_BLOCKED'; end if;\n  actual:=payload+p_size;\n  if actual>s.held_bytes or u.historical_original_bytes::numeric+f.original_bytes::numeric>9223372036854775807 or u.historical_stored_bytes::numeric+actual::numeric>9223372036854775807 then raise exception 'ACCOUNTING_OVERFLOW_OR_LIMIT'; end if;\n  insert into public.file_manifests(file_id,session_id,owner_id,manifest,sha256,object_path,observed_bytes,provider_verified_at) values(f.id,s.id,s.owner_id,p_manifest,p_sha256,p_path,p_size,now());\n  update public.files set state='ready',encoded_payload_bytes=payload,manifest_bytes=p_size,stored_bytes=actual,manifest_sha256=p_sha256,manifest_path=p_path,block_count=count_blocks,ready_at=now(),revision=revision+1 where id=f.id returning * into f;\n  update public.user_usage set reserved_bytes=reserved_bytes-s.held_bytes,stored_bytes=stored_bytes+actual,active_slots=active_slots-1,historical_original_bytes=historical_original_bytes+f.original_bytes,historical_stored_bytes=historical_stored_bytes+actual,revision=revision+1,updated_at=now() where owner_id=s.owner_id;\n  insert into public.usage_events(owner_id,session_id,file_id,event_key,kind,stored_delta,reserved_delta,slot_delta) values(s.owner_id,s.id,f.id,'commit:'||s.id,'commit',actual,-s.held_bytes,-1);\n  update public.upload_sessions set state='completed',held_bytes=0,slot_held=false,revision=revision+1,updated_at=now() where id=s.id;\n  return app_private.file_json(f);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_session uuid, p_manifest jsonb, p_size bigint, p_sha256 text, p_path text",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "ss_finish_attempt_request",
+        "config": ["search_path=\"\""],
+        "result": "void",
+        "schema": "public",
+        "source": "\ndeclare a public.transfer_attempts; r app_private.attempt_requests; begin\n  select * into strict r from app_private.attempt_requests where request_id=p_request;\n  select * into strict a from public.transfer_attempts where id=r.attempt_id;\n  perform 1 from public.user_usage where owner_id=a.owner_id for update;\n  perform 1 from public.upload_sessions where id=a.session_id for update;\n  select * into strict a from public.transfer_attempts where id=a.id for update;\n  select * into strict r from app_private.attempt_requests where request_id=p_request for update;\n  if r.state='acknowledged' and r.acknowledged_offset is not distinct from p_offset then return; end if;\n  if r.state<>'reserved' then raise exception 'REQUEST_BLOCKED'; end if;\n  if p_offset is null then\n    update app_private.attempt_requests set state='ambiguous' where request_id=p_request;\n    update public.transfer_attempts set state='ambiguous' where id=a.id;\n    update public.upload_sessions set state='reconciling',revision=revision+1 where id=a.session_id and state='uploading';\n    return;\n  end if;\n  if p_offset is distinct from a.acknowledged_bytes+r.body_bytes or p_offset>a.authorized_max_bytes then raise exception 'OFFSET_MISMATCH'; end if;\n  update app_private.attempt_requests set state='acknowledged',acknowledged_offset=p_offset where request_id=p_request;\n  update public.transfer_attempts set acknowledged_bytes=p_offset where id=a.id;\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_request uuid, p_offset bigint",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "ss_list_files",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid := app_private.actor(); result jsonb; begin\n  if p_limit is null or p_limit not between 1 and 50 or (p_before is null)<>(p_id is null) then raise exception 'INVALID_INPUT'; end if;\n  select coalesce(jsonb_agg(app_private.file_json(f) order by f.created_at desc,f.id desc),'[]'::jsonb) into result from\n    (select * from public.files where owner_id=a and state='ready' and (p_before is null or (created_at,id)<(p_before,p_id)) order by created_at desc,id desc limit p_limit) f;\n  return result;\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_limit integer, p_before timestamp with time zone, p_id uuid",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_reconcile_removed_attempt",
+        "config": ["search_path=\"\""],
+        "result": "void",
+        "schema": "public",
+        "source": "\ndeclare a public.transfer_attempts; s public.upload_sessions; begin\n  if p_writers_fenced is distinct from true or p_removed is distinct from true then raise exception 'CLEANUP_PROOF_REQUIRED'; end if;\n  select * into strict a from public.transfer_attempts where id=p_attempt;\n  perform 1 from public.user_usage where owner_id=a.owner_id for update;\n  select * into strict s from public.upload_sessions where id=a.session_id for update;\n  select * into strict a from public.transfer_attempts where id=a.id for update;\n  if s.state not in('reserved','uploading','reconciling') then raise exception 'SESSION_BLOCKED'; end if;\n  if a.state='settled' then return; end if;\n  update public.transfer_attempts set state='settled' where id=a.id;\n  update public.file_blocks set state='allocated' where id=a.block_id;\n  update public.upload_sessions set epoch=epoch+1,state='uploading',revision=revision+1 where id=s.id;\n  -- Never resets attempted bytes or request history; old reservations stay durable.\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_attempt uuid, p_writers_fenced boolean, p_removed boolean",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "ss_record_observation",
+        "config": ["search_path=\"\""],
+        "result": "void",
+        "schema": "public",
+        "source": "\ndeclare a public.transfer_attempts; s public.upload_sessions; begin\n  select * into strict a from public.transfer_attempts where id=p_attempt;\n  perform 1 from public.user_usage where owner_id=a.owner_id for update;\n  select * into strict s from public.upload_sessions where id=a.session_id for update;\n  select * into strict a from public.transfer_attempts where id=a.id for update;\n  if s.state='settled' or a.state='settled' then raise exception 'LATE_WRITE_AFTER_SETTLEMENT'; end if;\n  if a.epoch is distinct from p_epoch or p_size is null or p_size<>a.authorized_max_bytes then raise exception 'OBJECT_EVIDENCE_MISMATCH'; end if;\n  if a.state='present' and a.observed_bytes=p_size then return; end if;\n  -- This is provider size/presence evidence, never an original-byte digest claim.\n  update public.transfer_attempts set observed_bytes=p_size,provider_verified_at=now(),state=case when s.epoch=a.epoch and s.state='uploading' then 'present' else 'deleting' end where id=a.id;\n  update public.file_blocks set state=case when s.epoch=a.epoch and s.state='uploading' then 'present' else 'deleting' end where id=a.block_id;\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_attempt uuid, p_epoch bigint, p_size bigint",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      },
+      {
+        "name": "ss_reserve",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid := app_private.actor(); u public.user_usage; s public.upload_sessions; fid uuid:=gen_random_uuid(); sid uuid:=gen_random_uuid(); required bigint; fingerprint text; begin\n  if p_key is null or p_key !~ '^[A-Za-z0-9_-]{16,80}$' or not app_private.valid_name(p_name) or p_original is null or p_original not between 0 and 33554432 or p_hash is null or p_hash !~ '^[a-f0-9]{64}$' or (p_mime is not null and (octet_length(p_mime)>127 or p_mime !~ '^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+$')) then raise exception 'INVALID_INPUT'; end if;\n  fingerprint:=encode(sha256(convert_to(jsonb_build_array(p_name,p_mime,p_original,p_hash)::text,'UTF8')),'hex');\n  select * into u from public.user_usage where owner_id=a for update;\n  if not found then raise exception 'ACCOUNT_SETUP_REQUIRED'; end if;\n  select * into s from public.upload_sessions where owner_id=a and idempotency_key=p_key;\n  if found then\n    if s.request_digest<>fingerprint then raise exception 'IDEMPOTENCY_CONFLICT'; end if;\n    return jsonb_build_object('id',s.id,'fileId',s.file_id,'state',s.state,'heldBytes',s.held_bytes::text,'epoch',s.epoch);\n  end if;\n  required:=p_original+131072;\n  if u.stored_bytes::numeric+u.reserved_bytes::numeric+required::numeric>u.quota_bytes::numeric then raise exception 'QUOTA_EXCEEDED'; end if;\n  if u.active_slots>=u.max_slots then raise exception 'SLOTS_EXCEEDED'; end if;\n  insert into public.files(id,owner_id,original_name,display_name,original_mime,original_bytes,source_sha256) values(fid,a,p_name,p_name,p_mime,p_original,p_hash);\n  insert into public.upload_sessions(id,file_id,owner_id,idempotency_key,request_digest,held_bytes,lease_expires_at,initial_source_sha256,manifest_path)\n    values(sid,fid,a,p_key,fingerprint,required,now()+interval '24 hours',p_hash,'v1/'||a||'/'||fid||'/'||sid||'/1/manifest/'||gen_random_uuid()||'.bin');\n  update public.user_usage set reserved_bytes=reserved_bytes+required,active_slots=active_slots+1,revision=revision+1,updated_at=now() where owner_id=a;\n  insert into public.usage_events(owner_id,session_id,file_id,event_key,kind,reserved_delta,slot_delta) values(a,sid,fid,'reserve:'||sid,'reserve',required,1);\n  return jsonb_build_object('id',sid,'fileId',fid,'state','reserved','heldBytes',required::text,'epoch',1);\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_key text, p_name text, p_mime text, p_original bigint, p_hash text",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_sessions",
+        "config": ["search_path=\"\""],
+        "result": "jsonb",
+        "schema": "public",
+        "source": "\ndeclare a uuid:=app_private.actor(); result jsonb; begin\n  select coalesce(jsonb_agg(v),'[]'::jsonb) into result from\n    (select jsonb_build_object('id',id,'fileId',file_id,'state',state,'heldBytes',held_bytes::text,'epoch',epoch,'expiresAt',lease_expires_at) v from public.upload_sessions where owner_id=a order by created_at desc,id desc limit 50) q;\n  return result;\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": true
+      },
+      {
+        "name": "ss_settle_cleanup",
+        "config": ["search_path=\"\""],
+        "result": "void",
+        "schema": "public",
+        "source": "\ndeclare s public.upload_sessions; f public.files; stored_release bigint:=0; begin\n  if p_writers_fenced is distinct from true or p_objects_removed is distinct from true then raise exception 'CLEANUP_PROOF_REQUIRED'; end if;\n  select * into strict s from public.upload_sessions where id=p_session;\n  perform 1 from public.user_usage where owner_id=s.owner_id for update;\n  select * into strict s from public.upload_sessions where id=p_session for update;\n  select * into strict f from public.files where id=s.file_id for update;\n  if s.state='settled' then return; end if;\n  if f.state<>'deleting' or s.state not in('cancelling','expired','completed') then raise exception 'CLEANUP_STATE_INVALID'; end if;\n  if s.state='completed' then stored_release:=f.stored_bytes; end if;\n  update public.user_usage set reserved_bytes=reserved_bytes-s.held_bytes,stored_bytes=stored_bytes-stored_release,active_slots=active_slots-case when s.slot_held then 1 else 0 end,revision=revision+1,updated_at=now() where owner_id=s.owner_id;\n  insert into public.usage_events(owner_id,session_id,file_id,event_key,kind,stored_delta,reserved_delta,slot_delta) values(s.owner_id,s.id,f.id,'settle:'||s.id,case when stored_release>0 then 'delete' else 'release' end,-stored_release,-s.held_bytes,case when s.slot_held then -1 else 0 end);\n  update public.transfer_attempts set state='settled' where session_id=s.id;\n  update public.file_blocks set state='deleted' where session_id=s.id;\n  update public.files set state='deleted',revision=revision+1 where id=f.id;\n  update public.upload_sessions set state='settled',held_bytes=0,slot_held=false,revision=revision+1 where id=s.id;\n  update public.cleanup_jobs set state='done' where session_id=s.id;\nend ",
+        "definer": true,
+        "language": "plpgsql",
+        "arguments": "p_session uuid, p_writers_fenced boolean, p_objects_removed boolean",
+        "volatility": "v",
+        "anon_execute": false,
+        "auth_execute": false
+      }
+    ],
+    "constraints": [
+      {
+        "kind": "c",
+        "name": "account_policy_max_slots_check",
+        "table": "account_policy",
+        "schema": "app_private",
+        "definition": "CHECK (((max_slots >= 0) AND (max_slots <= 2)))"
+      },
+      {
+        "kind": "p",
+        "name": "account_policy_pkey",
+        "table": "account_policy",
+        "schema": "app_private",
+        "definition": "PRIMARY KEY (singleton)"
+      },
+      {
+        "kind": "c",
+        "name": "account_policy_quota_bytes_check",
+        "table": "account_policy",
+        "schema": "app_private",
+        "definition": "CHECK ((quota_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "account_policy_singleton_check",
+        "table": "account_policy",
+        "schema": "app_private",
+        "definition": "CHECK (singleton)"
+      },
+      {
+        "kind": "f",
+        "name": "attempt_requests_attempt_id_fkey",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "definition": "FOREIGN KEY (attempt_id) REFERENCES transfer_attempts(id)"
+      },
+      {
+        "kind": "c",
+        "name": "attempt_requests_body_bytes_check",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "definition": "CHECK ((body_bytes > 0))"
+      },
+      {
+        "kind": "p",
+        "name": "attempt_requests_pkey",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "definition": "PRIMARY KEY (request_id)"
+      },
+      {
+        "kind": "c",
+        "name": "attempt_requests_state_check",
+        "table": "attempt_requests",
+        "schema": "app_private",
+        "definition": "CHECK ((state = ANY (ARRAY['reserved'::text, 'acknowledged'::text, 'ambiguous'::text])))"
+      },
+      {
+        "kind": "c",
+        "name": "cleanup_jobs_attempts_check",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CHECK ((attempts >= 0))"
+      },
+      {
+        "kind": "f",
+        "name": "cleanup_jobs_file_id_owner_id_fkey",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "FOREIGN KEY (file_id, owner_id) REFERENCES files(id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "cleanup_jobs_kind_check",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CHECK ((kind = ANY (ARRAY['cancel'::text, 'delete'::text])))"
+      },
+      {
+        "kind": "p",
+        "name": "cleanup_jobs_pkey",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "kind": "f",
+        "name": "cleanup_jobs_session_id_owner_id_fkey",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "FOREIGN KEY (session_id, owner_id) REFERENCES upload_sessions(id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "cleanup_jobs_state_check",
+        "table": "cleanup_jobs",
+        "schema": "public",
+        "definition": "CHECK ((state = ANY (ARRAY['queued'::text, 'leased'::text, 'blocked'::text, 'done'::text])))"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_block_index_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK (((block_index >= 0) AND (block_index <= 127)))"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK (((encoded_bytes >= 0) AND (encoded_bytes <= original_bytes)))"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_check1",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK ((((codec = 'raw'::text) AND (encoded_bytes = original_bytes)) OR ((codec = 'gzip'::text) AND (original_bytes > 0) AND (encoded_bytes >= 18))))"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_codec_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK ((codec = ANY (ARRAY['raw'::text, 'gzip'::text])))"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_encoded_sha256_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK ((encoded_sha256 ~ '^[a-f0-9]{64}$'::text))"
+      },
+      {
+        "kind": "u",
+        "name": "file_blocks_file_id_block_index_key",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "UNIQUE (file_id, block_index)"
+      },
+      {
+        "kind": "u",
+        "name": "file_blocks_id_session_id_owner_id_key",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "UNIQUE (id, session_id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_original_bytes_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK (((original_bytes >= 0) AND (original_bytes <= 8388608)))"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_original_offset_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK ((original_offset >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_original_sha256_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK ((original_sha256 ~ '^[a-f0-9]{64}$'::text))"
+      },
+      {
+        "kind": "p",
+        "name": "file_blocks_pkey",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "kind": "f",
+        "name": "file_blocks_session_id_file_id_owner_id_fkey",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "FOREIGN KEY (session_id, file_id, owner_id) REFERENCES upload_sessions(id, file_id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "file_blocks_state_check",
+        "table": "file_blocks",
+        "schema": "public",
+        "definition": "CHECK ((state = ANY (ARRAY['allocated'::text, 'present'::text, 'deleting'::text, 'deleted'::text])))"
+      },
+      {
+        "kind": "c",
+        "name": "file_manifests_manifest_check",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "CHECK ((octet_length((manifest)::text) <= 131072))"
+      },
+      {
+        "kind": "u",
+        "name": "file_manifests_object_path_key",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "UNIQUE (object_path)"
+      },
+      {
+        "kind": "c",
+        "name": "file_manifests_observed_bytes_check",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "CHECK (((observed_bytes >= 1) AND (observed_bytes <= 131072)))"
+      },
+      {
+        "kind": "p",
+        "name": "file_manifests_pkey",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "PRIMARY KEY (file_id)"
+      },
+      {
+        "kind": "f",
+        "name": "file_manifests_session_id_file_id_owner_id_fkey",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "FOREIGN KEY (session_id, file_id, owner_id) REFERENCES upload_sessions(id, file_id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "file_manifests_sha256_check",
+        "table": "file_manifests",
+        "schema": "public",
+        "definition": "CHECK ((sha256 ~ '^[a-f0-9]{64}$'::text))"
+      },
+      {
+        "kind": "c",
+        "name": "files_block_count_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK (((block_count >= 1) AND (block_count <= 128)))"
+      },
+      {
+        "kind": "c",
+        "name": "files_category_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((category = ANY (ARRAY['document'::text, 'image'::text, 'video'::text, 'audio'::text, 'archive'::text, 'other'::text])))"
+      },
+      {
+        "kind": "c",
+        "name": "files_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK (((state <> 'ready'::text) OR ((encoded_payload_bytes IS NOT NULL) AND (manifest_bytes IS NOT NULL) AND (stored_bytes = (encoded_payload_bytes + manifest_bytes)) AND (manifest_sha256 IS NOT NULL) AND (manifest_path IS NOT NULL) AND (block_count IS NOT NULL) AND (ready_at IS NOT NULL))))"
+      },
+      {
+        "kind": "c",
+        "name": "files_display_name_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK (((octet_length(display_name) >= 1) AND (octet_length(display_name) <= 255)))"
+      },
+      {
+        "kind": "c",
+        "name": "files_encoded_payload_bytes_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((encoded_payload_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "files_format_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((format = 'compression-spike'::text))"
+      },
+      {
+        "kind": "c",
+        "name": "files_format_version_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((format_version = 1))"
+      },
+      {
+        "kind": "u",
+        "name": "files_id_owner_id_key",
+        "table": "files",
+        "schema": "public",
+        "definition": "UNIQUE (id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "files_manifest_bytes_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK (((manifest_bytes >= 1) AND (manifest_bytes <= 131072)))"
+      },
+      {
+        "kind": "u",
+        "name": "files_manifest_path_key",
+        "table": "files",
+        "schema": "public",
+        "definition": "UNIQUE (manifest_path)"
+      },
+      {
+        "kind": "c",
+        "name": "files_manifest_sha256_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((manifest_sha256 ~ '^[a-f0-9]{64}$'::text))"
+      },
+      {
+        "kind": "c",
+        "name": "files_original_bytes_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK (((original_bytes >= 0) AND (original_bytes <= 33554432)))"
+      },
+      {
+        "kind": "c",
+        "name": "files_original_mime_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((octet_length(original_mime) <= 127))"
+      },
+      {
+        "kind": "c",
+        "name": "files_original_name_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK (((octet_length(original_name) >= 1) AND (octet_length(original_name) <= 255)))"
+      },
+      {
+        "kind": "f",
+        "name": "files_owner_id_fkey",
+        "table": "files",
+        "schema": "public",
+        "definition": "FOREIGN KEY (owner_id) REFERENCES profiles(id)"
+      },
+      {
+        "kind": "p",
+        "name": "files_pkey",
+        "table": "files",
+        "schema": "public",
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "kind": "c",
+        "name": "files_source_sha256_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((source_sha256 ~ '^[a-f0-9]{64}$'::text))"
+      },
+      {
+        "kind": "c",
+        "name": "files_state_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((state = ANY (ARRAY['uploading'::text, 'ready'::text, 'failed'::text, 'deleting'::text, 'deleted'::text])))"
+      },
+      {
+        "kind": "c",
+        "name": "files_stored_bytes_check",
+        "table": "files",
+        "schema": "public",
+        "definition": "CHECK ((stored_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "profiles_display_name_check",
+        "table": "profiles",
+        "schema": "public",
+        "definition": "CHECK ((octet_length(display_name) <= 255))"
+      },
+      {
+        "kind": "f",
+        "name": "profiles_id_fkey",
+        "table": "profiles",
+        "schema": "public",
+        "definition": "FOREIGN KEY (id) REFERENCES auth.users(id)"
+      },
+      {
+        "kind": "p",
+        "name": "profiles_pkey",
+        "table": "profiles",
+        "schema": "public",
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "kind": "c",
+        "name": "transfer_attempts_attempt_number_check",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CHECK ((attempt_number >= 1))"
+      },
+      {
+        "kind": "c",
+        "name": "transfer_attempts_attempted_bytes_check",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CHECK ((attempted_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "transfer_attempts_authorized_max_bytes_check",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CHECK ((authorized_max_bytes >= 0))"
+      },
+      {
+        "kind": "u",
+        "name": "transfer_attempts_block_id_attempt_number_key",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "UNIQUE (block_id, attempt_number)"
+      },
+      {
+        "kind": "f",
+        "name": "transfer_attempts_block_id_session_id_owner_id_fkey",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "FOREIGN KEY (block_id, session_id, owner_id) REFERENCES file_blocks(id, session_id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "transfer_attempts_check",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CHECK (((acknowledged_bytes >= 0) AND (acknowledged_bytes <= authorized_max_bytes)))"
+      },
+      {
+        "kind": "c",
+        "name": "transfer_attempts_check1",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CHECK (((observed_bytes >= 0) AND (observed_bytes <= authorized_max_bytes)))"
+      },
+      {
+        "kind": "c",
+        "name": "transfer_attempts_check2",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CHECK (((state <> 'present'::text) OR ((observed_bytes IS NOT NULL) AND (provider_verified_at IS NOT NULL))))"
+      },
+      {
+        "kind": "u",
+        "name": "transfer_attempts_object_path_key",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "UNIQUE (object_path)"
+      },
+      {
+        "kind": "p",
+        "name": "transfer_attempts_pkey",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "kind": "c",
+        "name": "transfer_attempts_state_check",
+        "table": "transfer_attempts",
+        "schema": "public",
+        "definition": "CHECK ((state = ANY (ARRAY['authorized'::text, 'in_flight'::text, 'ambiguous'::text, 'present'::text, 'fenced'::text, 'deleting'::text, 'settled'::text])))"
+      },
+      {
+        "kind": "c",
+        "name": "upload_sessions_epoch_check",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CHECK ((epoch >= 1))"
+      },
+      {
+        "kind": "f",
+        "name": "upload_sessions_file_id_owner_id_fkey",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "FOREIGN KEY (file_id, owner_id) REFERENCES files(id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "upload_sessions_held_bytes_check",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CHECK ((held_bytes >= 0))"
+      },
+      {
+        "kind": "u",
+        "name": "upload_sessions_id_file_id_owner_id_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "UNIQUE (id, file_id, owner_id)"
+      },
+      {
+        "kind": "u",
+        "name": "upload_sessions_id_owner_id_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "UNIQUE (id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "upload_sessions_idempotency_key_check",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CHECK ((idempotency_key ~ '^[A-Za-z0-9_-]{16,80}$'::text))"
+      },
+      {
+        "kind": "c",
+        "name": "upload_sessions_initial_source_sha256_check",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CHECK ((initial_source_sha256 ~ '^[a-f0-9]{64}$'::text))"
+      },
+      {
+        "kind": "u",
+        "name": "upload_sessions_manifest_path_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "UNIQUE (manifest_path)"
+      },
+      {
+        "kind": "u",
+        "name": "upload_sessions_owner_id_idempotency_key_key",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "UNIQUE (owner_id, idempotency_key)"
+      },
+      {
+        "kind": "p",
+        "name": "upload_sessions_pkey",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "kind": "c",
+        "name": "upload_sessions_state_check",
+        "table": "upload_sessions",
+        "schema": "public",
+        "definition": "CHECK ((state = ANY (ARRAY['reserved'::text, 'uploading'::text, 'reconciling'::text, 'finalizing'::text, 'completed'::text, 'cancelling'::text, 'expired'::text, 'settled'::text])))"
+      },
+      {
+        "kind": "f",
+        "name": "usage_events_file_id_owner_id_fkey",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "FOREIGN KEY (file_id, owner_id) REFERENCES files(id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "usage_events_kind_check",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "CHECK ((kind = ANY (ARRAY['reserve'::text, 'commit'::text, 'release'::text, 'delete'::text, 'correction'::text])))"
+      },
+      {
+        "kind": "u",
+        "name": "usage_events_owner_id_event_key_key",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "UNIQUE (owner_id, event_key)"
+      },
+      {
+        "kind": "f",
+        "name": "usage_events_owner_id_fkey",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "FOREIGN KEY (owner_id) REFERENCES profiles(id)"
+      },
+      {
+        "kind": "p",
+        "name": "usage_events_pkey",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "kind": "f",
+        "name": "usage_events_session_id_owner_id_fkey",
+        "table": "usage_events",
+        "schema": "public",
+        "definition": "FOREIGN KEY (session_id, owner_id) REFERENCES upload_sessions(id, owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_active_slots_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((active_slots >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((((stored_bytes)::numeric + (reserved_bytes)::numeric) <= (quota_bytes)::numeric))"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_check1",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((active_slots <= max_slots))"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_historical_original_bytes_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((historical_original_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_historical_stored_bytes_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((historical_stored_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_max_slots_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK (((max_slots >= 0) AND (max_slots <= 2)))"
+      },
+      {
+        "kind": "f",
+        "name": "user_usage_owner_id_fkey",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "FOREIGN KEY (owner_id) REFERENCES profiles(id)"
+      },
+      {
+        "kind": "p",
+        "name": "user_usage_pkey",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "PRIMARY KEY (owner_id)"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_quota_bytes_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((quota_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_reserved_bytes_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((reserved_bytes >= 0))"
+      },
+      {
+        "kind": "c",
+        "name": "user_usage_stored_bytes_check",
+        "table": "user_usage",
+        "schema": "public",
+        "definition": "CHECK ((stored_bytes >= 0))"
+      }
+    ]
+  }
+}

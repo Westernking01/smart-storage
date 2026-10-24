@@ -1,0 +1,11 @@
+node_modules
+.cache
+.next
+coverage
+playwright-report
+test-results
+package-lock.json
+next-env.d.ts
+docs
+AGENTS.md
+README.md

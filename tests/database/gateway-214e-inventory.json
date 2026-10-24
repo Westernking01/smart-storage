@@ -1,0 +1,1885 @@
+{
+  "database": "smart_storage_gateway_test",
+  "version": "17.11",
+  "schemas": ["app_private", "auth", "public"],
+  "relations": [
+    {
+      "schema": "app_private",
+      "name": "account_policy",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "account_policy_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "attempt_requests",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "attempt_requests_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_account_occupancy",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_accounts",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_accounts_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_cleanup_members",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_cleanup_members_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_cleanup_snapshots",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_cleanup_snapshots_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_cleanup_snapshots_session_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_discoveries",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_discoveries_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_discoveries_resource_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_discovery_closures",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_discovery_closures_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_invalidations",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_invalidations_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_observation_receipts",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_observation_receipts_issuer_operation_key_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_observation_receipts_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_one_stream_per_session",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_preparations",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_preparations_owner_id_operation_key_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_preparations_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_preparations_session_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_protocols",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_protocols_namespace_revision_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_protocols_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_receipts_resource",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_reconciliations",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_reconciliations_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_removals",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_removals_job_id_operation_key_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_removals_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_requests",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_requests_attempt_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_requests_bucket_object_path_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_requests_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_resources",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_resources_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_resources_request_id_kind_object_path_scope_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_resources_resource_id_owner_id_session_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_resources_session",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_sessions",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_sessions_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_settlements",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_settlements_owner_id_operation_key_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_settlements_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_settlements_session_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_stream_completions",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_stream_completions_operation_key_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_stream_completions_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_stream_outcomes",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_stream_outcomes_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_verifications",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_verifications_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "app_private",
+      "name": "gateway_verifications_session",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "auth",
+      "name": "users",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "auth",
+      "name": "users_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "attempts_gateway_membership",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "attempts_session_state",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "cleanup_due",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "cleanup_jobs",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "cleanup_jobs_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "cleanup_unique_file",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "cleanup_unique_session",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "file_blocks",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "file_blocks_file_id_block_index_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "file_blocks_id_session_id_owner_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "file_blocks_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "file_manifests",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "file_manifests_object_path_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "file_manifests_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "files",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "files_id_owner_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "files_manifest_path_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "files_owner_page",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "files_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "gateway_evidence_attempt_membership",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "profiles",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "profiles_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race18_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race20_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race21_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race27_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race29_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race30_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race31_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race32_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race38_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race40_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race41_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race42_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race43_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race43_job",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race44_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race44_job",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "race6_certs",
+      "kind": "r",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "sessions_expiry",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "sessions_one_unsettled_file",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "sessions_owner",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "transfer_attempts",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "transfer_attempts_block_id_attempt_number_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "transfer_attempts_object_path_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "transfer_attempts_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "upload_sessions",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "upload_sessions_id_file_id_owner_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "upload_sessions_id_owner_id_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "upload_sessions_manifest_path_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "upload_sessions_owner_id_idempotency_key_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "upload_sessions_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "usage_events",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "usage_events_owner_id_event_key_key",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "usage_events_pkey",
+      "kind": "i",
+      "rls": false
+    },
+    {
+      "schema": "public",
+      "name": "user_usage",
+      "kind": "r",
+      "rls": true
+    },
+    {
+      "schema": "public",
+      "name": "user_usage_pkey",
+      "kind": "i",
+      "rls": false
+    }
+  ],
+  "functions": [
+    {
+      "signature": "app_private.actor()",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.attempt_counters()",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.file_json(files)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.file_transition()",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_check_membership(uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_check_verification(uuid,uuid,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_decision_insert_guard()",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_discovery_digest(uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_evidence_immutable()",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_identity_guard()",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_legacy_request_guard()",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_lock_attempt(uuid,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_lock_cleanup(uuid,uuid,bigint)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_lock_session(uuid,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_membership_digest(uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_request_transition()",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.gateway_writer_digest(uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.owner_immutable()",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "app_private.valid_name(text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "auth.jwt()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "auth.uid()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race10_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race10_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race10_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race16_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race16_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race16_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race18_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race18_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race18_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race18_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race18_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race18_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race20_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race20_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race20_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race20_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race20_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race20_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race21_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race21_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race21_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race21_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race21_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race21_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race25_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race25_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race25_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race27_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race27_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race27_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race27_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race27_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race27_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race29_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race29_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race29_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race29_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race29_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race29_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race30_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race30_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race30_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race30_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race30_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race31_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race31_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race31_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race31_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race31_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race31_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race32_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race32_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race32_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race32_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race32_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race32_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race36_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race36_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race36_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race38_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race38_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race38_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race38_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race38_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race38_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race4_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race4_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race4_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race40_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race40_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race40_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race40_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race40_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race40_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race41_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race41_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race41_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race41_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race41_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race42_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race42_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race42_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race42_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race42_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race42_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race43_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race43_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race43_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race43_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race43_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race43_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race43_settle(uuid,bigint)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race44_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race44_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race44_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race44_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race44_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race44_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race44_settle(uuid,bigint)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race6_assert(boolean)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race6_cert(text,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race6_error(text,text)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race6_manifest()",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race6_prepare(bigint,jsonb)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "race6_register(integer,text,text,uuid)",
+      "owner": "postgres",
+      "definer": false,
+      "config": null
+    },
+    {
+      "signature": "ss_account()",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_allocate_attempt(uuid,integer,bigint,bigint,text,text,text)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_begin_attempt_request(uuid,bigint,uuid,bigint)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_bootstrap()",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_cancel(uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_delete_file(uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_edit_file(uuid,text,text,bigint)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_expire(uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_file(uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_finalize_verified(uuid,jsonb,bigint,text,text)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_finish_attempt_request(uuid,bigint)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_begin_cleanup_v1(uuid,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_claim_resource_v1(uuid,uuid,uuid,bigint,bigint,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_claim_v1(uuid,uuid,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_complete_stream_v1(uuid,uuid,bigint,uuid,uuid,uuid,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_discover_resource_v1(uuid,uuid,bigint,uuid,uuid,jsonb)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_dispatch_v1(uuid,uuid,uuid,bigint)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_lease_cleanup_v1(uuid,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_prepare_finalization_v1(uuid,uuid,uuid,bigint,jsonb,uuid,uuid,bigint)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_reconcile_discoveries_v1(uuid,uuid,bigint,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_record_receipt_v1(uuid,uuid,uuid,bigint,jsonb)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_record_removal_v1(uuid,uuid,bigint,uuid,uuid,uuid,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_record_stream_outcome_v1(uuid,uuid,uuid,uuid,text)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_register_resource_v1(uuid,uuid,uuid,bigint,text,text,jsonb,bigint,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_gateway_settle_cleanup_v1(uuid,uuid,bigint,uuid,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_list_files(integer,timestamp with time zone,uuid)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_reconcile_removed_attempt(uuid,boolean,boolean)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_record_observation(uuid,bigint,bigint)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_reserve(text,text,text,bigint,text)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_sessions()",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    },
+    {
+      "signature": "ss_settle_cleanup(uuid,boolean,boolean)",
+      "owner": "postgres",
+      "definer": true,
+      "config": ["search_path=\"\""]
+    }
+  ],
+  "triggers": [
+    {
+      "table": "app_private.attempt_requests",
+      "name": "gateway_no_legacy_request"
+    },
+    {
+      "table": "app_private.gateway_cleanup_members",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_cleanup_snapshots",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_discoveries",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_discovery_closures",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_invalidations",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_observation_receipts",
+      "name": "gateway_receipts_immutable"
+    },
+    {
+      "table": "app_private.gateway_preparations",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_protocols",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_reconciliations",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_removals",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_requests",
+      "name": "gateway_request_decision"
+    },
+    {
+      "table": "app_private.gateway_requests",
+      "name": "gateway_request_identity"
+    },
+    {
+      "table": "app_private.gateway_resources",
+      "name": "gateway_resource_decision"
+    },
+    {
+      "table": "app_private.gateway_resources",
+      "name": "gateway_resources_immutable"
+    },
+    {
+      "table": "app_private.gateway_sessions",
+      "name": "gateway_session_identity"
+    },
+    {
+      "table": "app_private.gateway_settlements",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_stream_completions",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_stream_outcomes",
+      "name": "immutable"
+    },
+    {
+      "table": "app_private.gateway_verifications",
+      "name": "immutable"
+    },
+    {
+      "table": "cleanup_jobs",
+      "name": "owner_immutable"
+    },
+    {
+      "table": "file_blocks",
+      "name": "gateway_block_identity"
+    },
+    {
+      "table": "file_blocks",
+      "name": "owner_immutable"
+    },
+    {
+      "table": "file_manifests",
+      "name": "owner_immutable"
+    },
+    {
+      "table": "files",
+      "name": "file_transition"
+    },
+    {
+      "table": "files",
+      "name": "owner_immutable"
+    },
+    {
+      "table": "transfer_attempts",
+      "name": "attempt_counters"
+    },
+    {
+      "table": "transfer_attempts",
+      "name": "gateway_attempt_decision"
+    },
+    {
+      "table": "transfer_attempts",
+      "name": "gateway_attempt_identity"
+    },
+    {
+      "table": "transfer_attempts",
+      "name": "owner_immutable"
+    },
+    {
+      "table": "upload_sessions",
+      "name": "gateway_session_fence"
+    },
+    {
+      "table": "upload_sessions",
+      "name": "owner_immutable"
+    },
+    {
+      "table": "usage_events",
+      "name": "owner_immutable"
+    },
+    {
+      "table": "user_usage",
+      "name": "owner_immutable"
+    }
+  ],
+  "policies": [
+    {
+      "cmd": "SELECT",
+      "qual": "(owner_id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "upload_sessions",
+      "permissive": "PERMISSIVE",
+      "policyname": "owner_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(owner_id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "file_blocks",
+      "permissive": "PERMISSIVE",
+      "policyname": "owner_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(owner_id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "files",
+      "permissive": "PERMISSIVE",
+      "policyname": "owner_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(owner_id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "user_usage",
+      "permissive": "PERMISSIVE",
+      "policyname": "owner_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(owner_id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "transfer_attempts",
+      "permissive": "PERMISSIVE",
+      "policyname": "owner_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(owner_id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "file_manifests",
+      "permissive": "PERMISSIVE",
+      "policyname": "owner_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(owner_id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "usage_events",
+      "permissive": "PERMISSIVE",
+      "policyname": "owner_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(id = ( SELECT app_private.actor() AS actor))",
+      "roles": ["authenticated"],
+      "tablename": "profiles",
+      "permissive": "PERMISSIVE",
+      "policyname": "profile_read",
+      "schemaname": "public",
+      "with_check": null
+    }
+  ],
+  "fixtures": {
+    "synthetic_users": 90,
+    "files": 180,
+    "sessions": 180,
+    "fixture_namespace_max": 44
+  }
+}

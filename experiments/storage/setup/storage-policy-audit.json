@@ -1,0 +1,652 @@
+{
+  "task": "1.4A.7",
+  "date": "2026-10-12",
+  "dashboardResult": {
+    "source": "user-reported",
+    "message": "Success. No rows returned.",
+    "executionTimestamp": "not provided"
+  },
+  "providerObserved": {
+    "bucket": {
+      "id": "smart-storage-feasibility",
+      "mime": ["application/octet-stream"],
+      "name": "smart-storage-feasibility",
+      "limit": 8388608,
+      "public": false
+    },
+    "grants": [
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "service_role",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "authenticated",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "anon",
+        "table": "buckets",
+        "grantable": false,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "postgres",
+        "table": "buckets",
+        "grantable": true,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "supabase_storage_admin",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "service_role",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "authenticated",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "anon",
+        "table": "objects",
+        "grantable": false,
+        "privilege": "MAINTAIN"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "INSERT"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "SELECT"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "UPDATE"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "DELETE"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "TRUNCATE"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "REFERENCES"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "TRIGGER"
+      },
+      {
+        "role": "postgres",
+        "table": "objects",
+        "grantable": true,
+        "privilege": "MAINTAIN"
+      }
+    ],
+    "tables": [
+      {
+        "rls": true,
+        "name": "buckets",
+        "force": false,
+        "owner": "supabase_storage_admin"
+      },
+      {
+        "rls": true,
+        "name": "objects",
+        "force": false,
+        "owner": "supabase_storage_admin"
+      }
+    ],
+    "policies": [
+      {
+        "name": "p14a3_feasibility_delete",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "objects",
+        "using": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND (owner_id = ( SELECT (auth.uid())::text AS uid)) AND storage.allow_any_operation(ARRAY['object.delete'::text, 'object.delete_many'::text]))",
+        "schema": "storage",
+        "command": "DELETE",
+        "permissive": "PERMISSIVE"
+      },
+      {
+        "name": "p14a3_feasibility_insert",
+        "check": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND storage.allow_any_operation(ARRAY['object.upload'::text, 'tus.upload.create'::text, 'tus.upload.part'::text, 'tus.upload.get'::text]))",
+        "roles": ["authenticated"],
+        "table": "objects",
+        "using": null,
+        "schema": "storage",
+        "command": "INSERT",
+        "permissive": "PERMISSIVE"
+      },
+      {
+        "name": "p14a3_feasibility_no_update",
+        "check": "(bucket_id <> 'smart-storage-feasibility'::text)",
+        "roles": ["public"],
+        "table": "objects",
+        "using": "(bucket_id <> 'smart-storage-feasibility'::text)",
+        "schema": "storage",
+        "command": "UPDATE",
+        "permissive": "RESTRICTIVE"
+      },
+      {
+        "name": "p14a3_feasibility_select",
+        "check": null,
+        "roles": ["authenticated"],
+        "table": "objects",
+        "using": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND (owner_id = ( SELECT (auth.uid())::text AS uid)) AND storage.allow_any_operation(ARRAY['object.upload'::text, 'object.get_authenticated'::text, 'object.get_authenticated_info'::text, 'object.head_authenticated_info'::text, 'object.list'::text, 'object.list_v2'::text, 'object.delete'::text, 'object.delete_many'::text, 'tus.upload.create'::text, 'tus.upload.part'::text, 'tus.upload.get'::text]))",
+        "schema": "storage",
+        "command": "SELECT",
+        "permissive": "PERMISSIVE"
+      }
+    ],
+    "read_only": "on",
+    "identities": [
+      {
+        "id": "7aaa8834-54ec-4f57-ae96-080928d8f74f",
+        "role": "authenticated",
+        "label": "A",
+        "anonymous": false,
+        "confirmed": true
+      },
+      {
+        "id": "4af63360-f59f-48d7-a745-49cb4339f26a",
+        "role": "authenticated",
+        "label": "B",
+        "anonymous": false,
+        "confirmed": true
+      }
+    ],
+    "observed_at": "2026-10-12T14:15:29.438285+00:00",
+    "object_count": 0,
+    "inspection_role": "supabase_read_only_user"
+  },
+  "comparison": {
+    "candidateSha256": "966496ece3762bc97333760bfc28f4b3ee833f2c6e06a5858e28528aee7accd8",
+    "parserVersion": 170007,
+    "normalization": [
+      "Ignore parser location metadata",
+      "Ignore scalar SELECT target aliases added by pg_get_expr",
+      "Remove text casts on string constants and text-array casts on array constructors; underlying values, UUID casts, column/function text casts, operators, boolean tree, calls and argument ordering remain compared"
+    ],
+    "policies": [
+      {
+        "name": "p14a3_feasibility_insert",
+        "commandMatch": true,
+        "rolesMatch": true,
+        "modeMatch": true,
+        "tableMatch": true,
+        "usingMatch": true,
+        "withCheckMatch": true
+      },
+      {
+        "name": "p14a3_feasibility_select",
+        "commandMatch": true,
+        "rolesMatch": true,
+        "modeMatch": true,
+        "tableMatch": true,
+        "usingMatch": true,
+        "withCheckMatch": true
+      },
+      {
+        "name": "p14a3_feasibility_delete",
+        "commandMatch": true,
+        "rolesMatch": true,
+        "modeMatch": true,
+        "tableMatch": true,
+        "usingMatch": true,
+        "withCheckMatch": true
+      },
+      {
+        "name": "p14a3_feasibility_no_update",
+        "commandMatch": true,
+        "rolesMatch": true,
+        "modeMatch": true,
+        "tableMatch": true,
+        "usingMatch": true,
+        "withCheckMatch": true
+      }
+    ],
+    "unexpectedPolicyCount": 0,
+    "allPolicyDefinitionsMatch": true,
+    "publicRoleCatalogCheck": "pg_policy.polroles is {0} for restrictive UPDATE; other three policies target only the authenticated role OID."
+  },
+  "boundaryAssessment": {
+    "managedGrants": {
+      "anonAuthenticated": "All eight direct privileges per audited table match the documented pre-deployment inventory; no direct PUBLIC grant observed.",
+      "serviceRolePostgres": "Previously recorded seven privileges remain present; MAINTAIN is now recorded, but its precise pre-deployment baseline and full ACL/grantability snapshots were incomplete.",
+      "storageSchema": "Owner and ordinary-role USAGE/no-CREATE match prior evidence.",
+      "universalUnchangedAclClaim": "Not fully provable without a complete prior ACL snapshot."
+    },
+    "globalSettings": {
+      "currentGlobalFileSizeLimitBytes": 52428800,
+      "source": "read-only native MCP get_storage_config",
+      "matchesUserObserved50MB": true,
+      "completeUnchangedGlobalSettings": "Unverified: no complete API configuration baseline or Dashboard action history."
+    },
+    "databaseObjects": {
+      "scriptAnalysis": "Approved SQL AST has only BEGIN, preflight DO with catalog SELECT assertions, four CREATE POLICY and COMMIT; no table/function/trigger/grant/global-setting mutations.",
+      "storageTables": "Eight ordinary Storage table names match the prior inventory.",
+      "publicFunctions": 0,
+      "allDatabaseFunctionsTriggersTablesUnchanged": "Not fully provable without complete pre-deployment catalog snapshots."
+    },
+    "runtime": "No upload, TUS, test sign-in, signed capabilities, deletion or cleanup performed; ADR-041 remains unresolved.",
+    "allStoragePolicyInventory": {
+      "count": 4,
+      "unexpected": 0,
+      "buckets": 0
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "phase": "2.5",
+  "projectReference": "fneuqneqaopkmpeevlqz",
+  "origin": "http://localhost:3000",
+  "limits": {
+    "auth": 40,
+    "rest": 40,
+    "storage": 0
+  },
+  "attempted": {
+    "auth": 2,
+    "rest": 0,
+    "storage": 0
+  },
+  "plannedFlows": [
+    "anonymous protection and safe redirect",
+    "invalid login",
+    "User A login, SSR identity, refresh and same-context tab",
+    "User A account-scoped staging preparation and recovery",
+    "logout, back-navigation protection and cookie clearing",
+    "User B login and isolation from User A staging",
+    "User B staging preparation",
+    "switch back to User A and recover only User A staging"
+  ],
+  "status": "BLOCKED",
+  "events": [
+    {
+      "id": "anonymous-protection",
+      "status": "PASS",
+      "actual": {
+        "redirected": true
+      },
+      "timestamp": "2026-10-14T00:25:13.511Z"
+    },
+    {
+      "id": "anonymous-protection",
+      "status": "PASS",
+      "actual": {
+        "redirected": true
+      },
+      "timestamp": "2026-10-14T00:25:37.216Z"
+    },
+    {
+      "id": "invalid-login",
+      "status": "PASS",
+      "actual": {
+        "safeError": true
+      },
+      "timestamp": "2026-10-14T00:25:38.956Z"
+    },
+    {
+      "id": "login-response-A",
+      "status": "FAILED",
+      "actual": {
+        "status": 401
+      },
+      "timestamp": "2026-10-14T00:26:44.583Z"
+    },
+    {
+      "id": "session-provider-5",
+      "status": "DISPATCHED",
+      "actual": {
+        "category": "auth",
+        "method": "GET",
+        "path": "/auth/v1/user"
+      },
+      "timestamp": "2026-10-14T00:28:55.326Z"
+    },
+    {
+      "id": "session-provider-result-6",
+      "status": "OBSERVED",
+      "actual": {
+        "category": "auth",
+        "status": 200,
+        "path": "/auth/v1/user"
+      },
+      "timestamp": "2026-10-14T00:28:56.170Z"
+    },
+    {
+      "id": "session-provider-7",
+      "status": "DISPATCHED",
+      "actual": {
+        "category": "auth",
+        "method": "GET",
+        "path": "/auth/v1/user"
+      },
+      "timestamp": "2026-10-14T00:29:43.628Z"
+    },
+    {
+      "id": "session-provider-result-8",
+      "status": "OBSERVED",
+      "actual": {
+        "category": "auth",
+        "status": 200,
+        "path": "/auth/v1/user"
+      },
+      "timestamp": "2026-10-14T00:29:44.375Z"
+    },
+    {
+      "id": "session-cookie-fixture-A",
+      "status": "OBSERVED",
+      "actual": {
+        "cookieCount": 1,
+        "names": ["sb-fneuqneqaopkmpeevlqz-auth-token"],
+        "attributes": [
+          {
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+          }
+        ]
+      },
+      "timestamp": "2026-10-14T00:29:44.402Z"
+    },
+    {
+      "id": "session-navigation-A",
+      "status": "OBSERVED",
+      "actual": {
+        "pathname": "/login"
+      },
+      "timestamp": "2026-10-14T00:29:44.690Z"
+    }
+  ],
+  "stopReason": "User A password login returned 401; an independently accepted existing session serialized by the official SSR client was redirected by the application proxy to login",
+  "completedAt": "2026-10-14T00:30:14.720Z"
+}

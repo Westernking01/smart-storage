@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Existing observer receipt SQL contract; isolated namespaced fixtures; transaction ROLLBACK",
+  "namespace": "81a03991",
+  "checks": [
+    "scope/owner/epoch binding",
+    "duplicate idempotency",
+    "conflicting payload rejection",
+    "provisional-only immutable receipts",
+    "historical fencing",
+    "reservation and slot holds",
+    "role denial"
+  ],
+  "runtimeObserverAuthentication": false,
+  "providerRequests": 0,
+  "newRoles": 0,
+  "newGrants": 0
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "nspname": "app_private",
+    "proname": "actor",
+    "definition": "CREATE OR REPLACE FUNCTION app_private.actor()\n RETURNS uuid\n LANGUAGE plpgsql\n STABLE\n SET search_path TO ''\nAS $function$\ndeclare a uuid := auth.uid(); begin\n  if a is null or coalesce((auth.jwt()->>'is_anonymous')::boolean,false) or auth.jwt()->>'role' is distinct from 'authenticated' then raise exception 'UNAUTHENTICATED'; end if;\n  return a;\nend $function$\n"
+  },
+  {
+    "nspname": "app_private",
+    "proname": "dev_cloud_owner",
+    "definition": "CREATE OR REPLACE FUNCTION app_private.dev_cloud_owner()\n RETURNS uuid\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\nDECLARE a uuid:=auth.uid(); BEGIN\r\n IF a IS NULL OR auth.jwt()->>'role' IS NULL OR auth.jwt()->>'role' NOT IN ('authenticated','ss_dev_cloud_publisher') OR coalesce((auth.jwt()->>'is_anonymous')::boolean,false) OR NOT EXISTS(SELECT 1 FROM app_private.dev_cloud_accounts WHERE owner_id=a AND enabled) THEN RAISE EXCEPTION 'DEV_ACCOUNT_DISABLED'; END IF;\r\n RETURN a;\r\nEND $function$\n"
+  },
+  {
+    "nspname": "auth",
+    "proname": "jwt",
+    "definition": "CREATE OR REPLACE FUNCTION auth.jwt()\n RETURNS jsonb\n LANGUAGE sql\n STABLE\nAS $function$\n  select \n    coalesce(\n        nullif(current_setting('request.jwt.claim', true), ''),\n        nullif(current_setting('request.jwt.claims', true), '')\n    )::jsonb\n$function$\n"
+  },
+  {
+    "nspname": "auth",
+    "proname": "uid",
+    "definition": "CREATE OR REPLACE FUNCTION auth.uid()\n RETURNS uuid\n LANGUAGE sql\n STABLE\nAS $function$\n  select \n  coalesce(\n    nullif(current_setting('request.jwt.claim.sub', true), ''),\n    (nullif(current_setting('request.jwt.claims', true), '')::jsonb ->> 'sub')\n  )::uuid\n$function$\n"
+  }
+]

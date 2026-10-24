@@ -1,0 +1,35 @@
+{
+  "projectReference": "fneuqneqaopkmpeevlqz",
+  "counts": {
+    "tables": 11,
+    "columns": 117,
+    "indexes": 31,
+    "policies": 8,
+    "triggers": 10,
+    "functions": 23,
+    "constraints": 94
+  },
+  "normalizedCatalogMatch": true,
+  "differences": [],
+  "normalization": {
+    "reason": "PostgreSQL 18 catalogs NOT NULL as pg_constraint kind n; PostgreSQL 17 records attnotnull only. All 117 column nullability flags compared independently and match.",
+    "ignoredLocalConstraintRows": 96
+  },
+  "migrations": [
+    {
+      "file": "202610130001_backend_schema.sql",
+      "sha256": "0d8aa2eefe6a722e5c5c3ed4601dddb1c5545675606d098d1e51884c12d0d827",
+      "md5": "4e4c6abd289b73b6636d0cf114dc4949"
+    },
+    {
+      "file": "202610130002_control_functions.sql",
+      "sha256": "8398c62975c8e8d8cf428f658313a616d9d8f007bfca4f695844005525783513",
+      "md5": "afda6e90c6c68addb615e97ac6555473"
+    },
+    {
+      "file": "202610130003_trusted_transitions_and_rls.sql",
+      "sha256": "f3825a35842f5f93a6182ee3dc1c767be479b8b888e973e20066db8fa229a6f8",
+      "md5": "1ee28387c05be5724a4ff1382f473475"
+    }
+  ]
+}

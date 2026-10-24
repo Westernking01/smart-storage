@@ -1,0 +1,34 @@
+[
+  {
+    "policyname": "p14a3_feasibility_delete",
+    "permissive": "PERMISSIVE",
+    "roles": "{authenticated}",
+    "cmd": "DELETE",
+    "qual": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND (owner_id = ( SELECT (auth.uid())::text AS uid)) AND storage.allow_any_operation(ARRAY['object.delete'::text, 'object.delete_many'::text]))",
+    "with_check": null
+  },
+  {
+    "policyname": "p14a3_feasibility_insert",
+    "permissive": "PERMISSIVE",
+    "roles": "{authenticated}",
+    "cmd": "INSERT",
+    "qual": null,
+    "with_check": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND storage.allow_any_operation(ARRAY['object.upload'::text, 'tus.upload.create'::text, 'tus.upload.part'::text, 'tus.upload.get'::text]))"
+  },
+  {
+    "policyname": "p14a3_feasibility_no_update",
+    "permissive": "RESTRICTIVE",
+    "roles": "{public}",
+    "cmd": "UPDATE",
+    "qual": "(bucket_id <> 'smart-storage-feasibility'::text)",
+    "with_check": "(bucket_id <> 'smart-storage-feasibility'::text)"
+  },
+  {
+    "policyname": "p14a3_feasibility_select",
+    "permissive": "PERMISSIVE",
+    "roles": "{authenticated}",
+    "cmd": "SELECT",
+    "qual": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND (owner_id = ( SELECT (auth.uid())::text AS uid)) AND storage.allow_any_operation(ARRAY['object.upload'::text, 'object.get_authenticated'::text, 'object.get_authenticated_info'::text, 'object.head_authenticated_info'::text, 'object.list'::text, 'object.list_v2'::text, 'object.delete'::text, 'object.delete_many'::text, 'tus.upload.create'::text, 'tus.upload.part'::text, 'tus.upload.get'::text]))",
+    "with_check": null
+  }
+]

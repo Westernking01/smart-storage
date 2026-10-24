@@ -1,0 +1,115 @@
+{
+  "task": "1.4B.1",
+  "project": "mdyiczsuddpqgjtfofgs",
+  "health": "ACTIVE_HEALTHY",
+  "developmentIsolation": "user-confirmed",
+  "role": "supabase_read_only_user",
+  "bucket": {
+    "id": "smart-storage-feasibility",
+    "name": "smart-storage-feasibility",
+    "public": false,
+    "file_size_limit": 8388608,
+    "allowed_mime_types": ["application/octet-stream"]
+  },
+  "tables": [
+    {
+      "rls": true,
+      "owner": "supabase_storage_admin",
+      "table": "buckets",
+      "forced": false
+    },
+    {
+      "rls": true,
+      "owner": "supabase_storage_admin",
+      "table": "objects",
+      "forced": false
+    }
+  ],
+  "policies": [
+    {
+      "cmd": "DELETE",
+      "qual": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND (owner_id = ( SELECT (auth.uid())::text AS uid)) AND storage.allow_any_operation(ARRAY['object.delete'::text, 'object.delete_many'::text]))",
+      "roles": ["authenticated"],
+      "tablename": "objects",
+      "permissive": "PERMISSIVE",
+      "policyname": "p14a3_feasibility_delete",
+      "schemaname": "storage",
+      "with_check": null
+    },
+    {
+      "cmd": "INSERT",
+      "qual": null,
+      "roles": ["authenticated"],
+      "tablename": "objects",
+      "permissive": "PERMISSIVE",
+      "policyname": "p14a3_feasibility_insert",
+      "schemaname": "storage",
+      "with_check": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND storage.allow_any_operation(ARRAY['object.upload'::text, 'tus.upload.create'::text, 'tus.upload.part'::text, 'tus.upload.get'::text]))"
+    },
+    {
+      "cmd": "UPDATE",
+      "qual": "(bucket_id <> 'smart-storage-feasibility'::text)",
+      "roles": ["public"],
+      "tablename": "objects",
+      "permissive": "RESTRICTIVE",
+      "policyname": "p14a3_feasibility_no_update",
+      "schemaname": "storage",
+      "with_check": "(bucket_id <> 'smart-storage-feasibility'::text)"
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "((bucket_id = 'smart-storage-feasibility'::text) AND (((( SELECT auth.uid() AS uid) = '7aaa8834-54ec-4f57-ae96-080928d8f74f'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/00.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/01.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/02.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/03.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/04.raw'::text, 'p14b-20261011-c40e8e03/7aaa8834-54ec-4f57-ae96-080928d8f74f/05.raw'::text]))) OR ((( SELECT auth.uid() AS uid) = '4af63360-f59f-48d7-a745-49cb4339f26a'::uuid) AND (name = ANY (ARRAY['p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/06.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/07.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/08.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/09.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/10.raw'::text, 'p14b-20261011-c40e8e03/4af63360-f59f-48d7-a745-49cb4339f26a/11.raw'::text])))) AND (owner_id = ( SELECT (auth.uid())::text AS uid)) AND storage.allow_any_operation(ARRAY['object.upload'::text, 'object.get_authenticated'::text, 'object.get_authenticated_info'::text, 'object.head_authenticated_info'::text, 'object.list'::text, 'object.list_v2'::text, 'object.delete'::text, 'object.delete_many'::text, 'tus.upload.create'::text, 'tus.upload.part'::text, 'tus.upload.get'::text]))",
+      "roles": ["authenticated"],
+      "tablename": "objects",
+      "permissive": "PERMISSIVE",
+      "policyname": "p14a3_feasibility_select",
+      "schemaname": "storage",
+      "with_check": null
+    }
+  ],
+  "read_only": "on",
+  "identities": [
+    {
+      "id": "4af63360-f59f-48d7-a745-49cb4339f26a",
+      "role": "authenticated",
+      "email": "smart-storage-user-b@example.invalid",
+      "confirmed": true,
+      "is_anonymous": false
+    },
+    {
+      "id": "7aaa8834-54ec-4f57-ae96-080928d8f74f",
+      "role": "authenticated",
+      "email": "smart-storage-user-a@example.invalid",
+      "confirmed": true,
+      "is_anonymous": false
+    }
+  ],
+  "observed_at": "2026-10-12T15:16:02.220444+00:00",
+  "prefix_objects": 0,
+  "bucket_object_count": 0,
+  "comparison": {
+    "priorAuditFile": "experiments/storage/setup/storage-policy-audit.json",
+    "priorAuditSha256": "cb241f42ba896aefd20f6d9d8246fe8e5e14a89904d1984148e2e00dc5220403",
+    "priorAuditVerifiedAgainstDeployment": true,
+    "policies": [
+      {
+        "name": "p14a3_feasibility_delete",
+        "exactCatalogMatch": true
+      },
+      {
+        "name": "p14a3_feasibility_insert",
+        "exactCatalogMatch": true
+      },
+      {
+        "name": "p14a3_feasibility_no_update",
+        "exactCatalogMatch": true
+      },
+      {
+        "name": "p14a3_feasibility_select",
+        "exactCatalogMatch": true
+      }
+    ],
+    "allMatch": true,
+    "unexpectedPolicyCount": 0
+  }
+}

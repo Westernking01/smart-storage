@@ -1,0 +1,8 @@
+{
+  "name": "smart-storage-private-v1",
+  "public": false,
+  "file_size_limit": 8388608,
+  "allowed_mime_types": ["application/octet-stream"],
+  "deployment_authorized": false,
+  "upload_authority_enabled": false
+}

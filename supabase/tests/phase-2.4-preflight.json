@@ -1,0 +1,37 @@
+{
+  "projectReference": "fneuqneqaopkmpeevlqz",
+  "providerObserved": {
+    "history": [
+      {
+        "name": "202610130001_backend_schema",
+        "sql_md5": "4e4c6abd289b73b6636d0cf114dc4949",
+        "version": "20261013234412"
+      },
+      {
+        "name": "202610130002_control_functions",
+        "sql_md5": "afda6e90c6c68addb615e97ac6555473",
+        "version": "20261013234421"
+      },
+      {
+        "name": "202610130003_trusted_transitions_and_rls",
+        "sql_md5": "1ee28387c05be5724a4ff1382f473475",
+        "version": "20261013234431"
+      }
+    ],
+    "schema_counts": {
+      "tables": 11,
+      "app_policies": 8,
+      "rpc_functions": 17
+    },
+    "account_policy": {
+      "max_slots": 0,
+      "quota_bytes": "0"
+    },
+    "ordinary_auth_helpers": {
+      "jwt": true,
+      "uid": true
+    }
+  },
+  "classification": "BLOCKED",
+  "reason": "Zero default quota/slots require a separately authorized policy write. No provider mutation or identity provisioning occurred."
+}

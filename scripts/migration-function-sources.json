@@ -1,0 +1,14 @@
+{
+  "supabase/migrations/202610130001_backend_schema.sql": "0d8aa2eefe6a722e5c5c3ed4601dddb1c5545675606d098d1e51884c12d0d827",
+  "supabase/migrations/202610130002_control_functions.sql": "8398c62975c8e8d8cf428f658313a616d9d8f007bfca4f695844005525783513",
+  "supabase/migrations/202610130003_trusted_transitions_and_rls.sql": "f3825a35842f5f93a6182ee3dc1c767be479b8b888e973e20066db8fa229a6f8",
+  "supabase/migrations/202610160004_gateway_claim_contracts.sql": "036138d7bb3b83c6685816a0c56430bdb01052c9f380b33453767b922cacbf93",
+  "supabase/migrations/202610160005_gateway_provider_evidence.sql": "517102a0c32d682d023b434437b150ec23640d14f73c9dcc78a47facfc9c7b99",
+  "supabase/migrations/202610160006_gateway_preparation_cleanup.sql": "25a7ad6b4905c9575a5bc55cb1dfc8f8c85677da13bab664f00219e69f8335e4",
+  "supabase/migrations/202610160007_gateway_lifecycle.sql": "100052009a7caa669e8440aa50c7e1396cf28311ba63887a3fa8629038fe4158",
+  "supabase/migrations/202610160008_gateway_write_observations.sql": "a79f38981a48287df77ba877c70f2ce72eb688036b95715906baddbc0f978715",
+  "supabase/migrations/202610160009_gateway_dispatch_scope.sql": "1370137af37c2f9b4df6cfb168b96ce7995017ff98c307ab30cef31bcce0d726",
+  "supabase/migrations/202610170010_gateway_only_admission.sql": "140d224e190404cb128d07c281b3d4abf41660ab4193324a50b292bb92071b93",
+  "supabase/migrations/202610170011_local_volume_lifecycle.sql": "6b0acb65105263f2ecb5c110302a4f458f1968a87931fa1e506f831b87198f1c",
+  "docs/local-account-provisioning.sql": "51ff01df88b4ea06af263a25e5c3db3415a4730e19dd52f9ba431a227f1a4a22"
+}

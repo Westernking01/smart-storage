@@ -1,0 +1,319 @@
+[
+  {
+    "setup": "GRANT USAGE ON SCHEMA extensions TO PUBLIC",
+    "undo": "REVOKE USAGE ON SCHEMA extensions FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT CREATE ON SCHEMA extensions TO PUBLIC",
+    "undo": "REVOKE CREATE ON SCHEMA extensions FROM PUBLIC",
+    "error": "schema ownership/CREATE exposure"
+  },
+  {
+    "setup": "GRANT INSERT ON extensions.pg_stat_statements TO PUBLIC",
+    "undo": "REVOKE INSERT ON extensions.pg_stat_statements FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT UPDATE ON extensions.pg_stat_statements TO PUBLIC",
+    "undo": "REVOKE UPDATE ON extensions.pg_stat_statements FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT DELETE ON extensions.pg_stat_statements TO PUBLIC",
+    "undo": "REVOKE DELETE ON extensions.pg_stat_statements FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRUNCATE ON extensions.pg_stat_statements TO PUBLIC",
+    "undo": "REVOKE TRUNCATE ON extensions.pg_stat_statements FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT REFERENCES ON extensions.pg_stat_statements TO PUBLIC",
+    "undo": "REVOKE REFERENCES ON extensions.pg_stat_statements FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRIGGER ON extensions.pg_stat_statements TO PUBLIC",
+    "undo": "REVOKE TRIGGER ON extensions.pg_stat_statements FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT USAGE ON SCHEMA extensions TO ss_dev_cloud_publisher",
+    "undo": "REVOKE USAGE ON SCHEMA extensions FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT CREATE ON SCHEMA extensions TO ss_dev_cloud_publisher",
+    "undo": "REVOKE CREATE ON SCHEMA extensions FROM ss_dev_cloud_publisher",
+    "error": "schema ownership/CREATE exposure"
+  },
+  {
+    "setup": "GRANT INSERT ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE INSERT ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT UPDATE ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE UPDATE ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT DELETE ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE DELETE ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRUNCATE ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE TRUNCATE ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT REFERENCES ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE REFERENCES ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRIGGER ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE TRIGGER ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE SELECT ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT(value) ON extensions.pg_stat_statements TO ss_dev_cloud_publisher",
+    "undo": "REVOKE SELECT(value) ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT USAGE ON SCHEMA extensions TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE USAGE ON SCHEMA extensions FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT CREATE ON SCHEMA extensions TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE CREATE ON SCHEMA extensions FROM ss_dev_cloud_publisher_login",
+    "error": "schema ownership/CREATE exposure"
+  },
+  {
+    "setup": "GRANT INSERT ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE INSERT ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT UPDATE ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE UPDATE ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT DELETE ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE DELETE ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRUNCATE ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE TRUNCATE ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT REFERENCES ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE REFERENCES ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRIGGER ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE TRIGGER ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE SELECT ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT(value) ON extensions.pg_stat_statements TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE SELECT(value) ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "ALTER VIEW extensions.pg_stat_statements OWNER TO ss_dev_cloud_publisher",
+    "undo": "ALTER VIEW extensions.pg_stat_statements OWNER TO postgres; GRANT SELECT ON extensions.pg_stat_statements TO PUBLIC",
+    "error": "relation privilege exposure",
+    "admin": true
+  },
+  {
+    "setup": "GRANT USAGE ON SCHEMA extensions TO PUBLIC",
+    "undo": "REVOKE USAGE ON SCHEMA extensions FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT CREATE ON SCHEMA extensions TO PUBLIC",
+    "undo": "REVOKE CREATE ON SCHEMA extensions FROM PUBLIC",
+    "error": "schema ownership/CREATE exposure"
+  },
+  {
+    "setup": "GRANT INSERT ON extensions.pg_stat_statements_info TO PUBLIC",
+    "undo": "REVOKE INSERT ON extensions.pg_stat_statements_info FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT UPDATE ON extensions.pg_stat_statements_info TO PUBLIC",
+    "undo": "REVOKE UPDATE ON extensions.pg_stat_statements_info FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT DELETE ON extensions.pg_stat_statements_info TO PUBLIC",
+    "undo": "REVOKE DELETE ON extensions.pg_stat_statements_info FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRUNCATE ON extensions.pg_stat_statements_info TO PUBLIC",
+    "undo": "REVOKE TRUNCATE ON extensions.pg_stat_statements_info FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT REFERENCES ON extensions.pg_stat_statements_info TO PUBLIC",
+    "undo": "REVOKE REFERENCES ON extensions.pg_stat_statements_info FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRIGGER ON extensions.pg_stat_statements_info TO PUBLIC",
+    "undo": "REVOKE TRIGGER ON extensions.pg_stat_statements_info FROM PUBLIC",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT USAGE ON SCHEMA extensions TO ss_dev_cloud_publisher",
+    "undo": "REVOKE USAGE ON SCHEMA extensions FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT CREATE ON SCHEMA extensions TO ss_dev_cloud_publisher",
+    "undo": "REVOKE CREATE ON SCHEMA extensions FROM ss_dev_cloud_publisher",
+    "error": "schema ownership/CREATE exposure"
+  },
+  {
+    "setup": "GRANT INSERT ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE INSERT ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT UPDATE ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE UPDATE ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT DELETE ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE DELETE ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRUNCATE ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE TRUNCATE ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT REFERENCES ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE REFERENCES ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRIGGER ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE TRIGGER ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE SELECT ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT(value) ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher",
+    "undo": "REVOKE SELECT(value) ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT USAGE ON SCHEMA extensions TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE USAGE ON SCHEMA extensions FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT CREATE ON SCHEMA extensions TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE CREATE ON SCHEMA extensions FROM ss_dev_cloud_publisher_login",
+    "error": "schema ownership/CREATE exposure"
+  },
+  {
+    "setup": "GRANT INSERT ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE INSERT ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT UPDATE ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE UPDATE ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT DELETE ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE DELETE ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRUNCATE ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE TRUNCATE ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT REFERENCES ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE REFERENCES ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT TRIGGER ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE TRIGGER ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE SELECT ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT(value) ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher_login",
+    "undo": "REVOKE SELECT(value) ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher_login",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "ALTER VIEW extensions.pg_stat_statements_info OWNER TO ss_dev_cloud_publisher",
+    "undo": "ALTER VIEW extensions.pg_stat_statements_info OWNER TO postgres; GRANT SELECT ON extensions.pg_stat_statements_info TO PUBLIC",
+    "error": "relation privilege exposure",
+    "admin": true
+  },
+  {
+    "setup": "CREATE VIEW extensions.application_data AS SELECT 1 value; GRANT SELECT ON extensions.application_data TO PUBLIC",
+    "undo": "DROP VIEW extensions.application_data",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "CREATE SCHEMA hidden; CREATE VIEW hidden.pg_stat_statements AS SELECT 1 value; GRANT SELECT ON hidden.pg_stat_statements TO PUBLIC",
+    "undo": "DROP SCHEMA hidden CASCADE",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT ON extensions.pg_stat_statements TO ss_dev_cloud_publisher WITH GRANT OPTION",
+    "undo": "REVOKE SELECT ON extensions.pg_stat_statements FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "GRANT SELECT ON extensions.pg_stat_statements_info TO ss_dev_cloud_publisher WITH GRANT OPTION",
+    "undo": "REVOKE SELECT ON extensions.pg_stat_statements_info FROM ss_dev_cloud_publisher",
+    "error": "relation privilege exposure"
+  },
+  {
+    "setup": "CREATE TABLE extensions.application_rows(value int); GRANT SELECT ON extensions.application_rows TO PUBLIC",
+    "undo": "DROP TABLE extensions.application_rows",
+    "error": "relation privilege exposure"
+  }
+]

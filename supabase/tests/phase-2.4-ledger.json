@@ -1,0 +1,1416 @@
+{
+  "schemaVersion": 1,
+  "projectReference": "fneuqneqaopkmpeevlqz",
+  "createdAt": "2026-10-13T23:49:35.310Z",
+  "limits": {
+    "auth": 64,
+    "rpc": 96,
+    "readOnlySql": 128,
+    "storage": 0,
+    "targetedQuotaWrites": 1
+  },
+  "attempted": {
+    "auth": 11,
+    "rpc": 35,
+    "readOnlySql": 6,
+    "storage": 0,
+    "management": 2,
+    "targetedQuotaWrites": 1
+  },
+  "plan": [
+    {
+      "id": "target-health",
+      "category": "management",
+      "maximum": 1,
+      "purpose": "Exact authorized project/health",
+      "expected": "matching reference and ACTIVE_HEALTHY",
+      "mutates": false,
+      "recovery": "stop on ambiguity"
+    },
+    {
+      "id": "auth-settings",
+      "category": "auth",
+      "maximum": 1,
+      "purpose": "Read relevant public Auth configuration",
+      "expected": "HTTP200 safe settings summary",
+      "mutates": false,
+      "recovery": "record inconclusive; no automatic retry"
+    },
+    {
+      "id": "schema-policy-preflight",
+      "category": "readOnlySql",
+      "maximum": 2,
+      "purpose": "Deployed catalog/history and reservation-policy prerequisites",
+      "expected": "no drift; usable test policy",
+      "mutates": false,
+      "recovery": "stop if drift or unapproved change required"
+    },
+    {
+      "id": "two-ordinary-identities-and-auth",
+      "category": "auth",
+      "maximum": 63,
+      "purpose": "Approved two identities, login/session/callback/recovery",
+      "expected": "distinct confirmed ordinary identities",
+      "mutates": true,
+      "recovery": "stop; reconcile records; never repeat ambiguous creation/login"
+    },
+    {
+      "id": "owned-data-and-reservations",
+      "category": "rpc",
+      "maximum": 96,
+      "purpose": "Ordinary bootstrap/RLS/negative-access/reservation matrix only",
+      "expected": "owner isolation and reviewed reservation outcomes",
+      "mutates": true,
+      "recovery": "stop on ambiguity; read-only reconcile, no privileged repair"
+    },
+    {
+      "id": "bounded-readback",
+      "category": "readOnlySql",
+      "maximum": 126,
+      "purpose": "Necessary authorized test evidence only",
+      "expected": "consistent existing test state",
+      "mutates": false,
+      "recovery": "record limitation; no direct SQL writes"
+    }
+  ],
+  "prerequisites": {
+    "approvedAddresses": "Two previously approved test mailboxes used without substitution",
+    "secureCredentials": "Current-user DPAPI outside repository, current-user/SYSTEM ACL verified",
+    "usableAccountPolicy": "Per-user test limits verified; global defaults unchanged",
+    "independentConnections": "not established"
+  },
+  "events": [
+    {
+      "id": "target-health",
+      "category": "management",
+      "expected": "authorized target ACTIVE_HEALTHY",
+      "mutates": false,
+      "status": "PASS",
+      "timestamp": "2026-10-13T23:49:36.746Z",
+      "actual": "matching project smart-storage-test ACTIVE_HEALTHY"
+    },
+    {
+      "id": "auth-settings",
+      "category": "auth",
+      "actor": "public-key/no-user",
+      "expected": "HTTP200 Auth settings",
+      "mutates": false,
+      "status": "PASS",
+      "timestamp": "2026-10-13T23:49:56.857Z",
+      "httpStatus": 200,
+      "actual": {
+        "emailEnabled": true,
+        "anonymousEnabled": false,
+        "mailerAutoconfirm": false,
+        "phoneAutoconfirm": false
+      }
+    },
+    {
+      "id": "schema-policy-preflight",
+      "category": "readOnlySql",
+      "actor": "catalog executor; not ordinary-user simulation",
+      "expected": "deployed migration history and usable test account policy",
+      "mutates": false,
+      "status": "BLOCKED",
+      "timestamp": "2026-10-13T23:49:59.702Z",
+      "actual": {
+        "migrationHistoryMatches": true,
+        "schemaCounts": {
+          "tables": 11,
+          "policies": 8,
+          "rpcFunctions": 17
+        },
+        "quotaBytes": "0",
+        "maxSlots": 0,
+        "reason": "Reservation prerequisites need unapproved configuration write; no mutation dispatched"
+      }
+    },
+    {
+      "id": "test-addresses-approved",
+      "category": "local-input",
+      "mutates": false,
+      "status": "APPROVED",
+      "actual": "Two controlled mailboxes supplied; no credential or identity provisioning",
+      "timestamp": "2026-10-13T23:52:34.289Z"
+    },
+    {
+      "id": "targeted-quota-continuation-authorized",
+      "category": "local-input",
+      "status": "APPROVED",
+      "mutates": false,
+      "actual": "Only two verified approved identities may receive quota1048576/maxSlots2; global defaults unchanged",
+      "timestamp": "2026-10-13T23:57:01.717Z"
+    },
+    {
+      "id": "continuation-target-health",
+      "category": "management",
+      "status": "reserved-before-dispatch",
+      "mutates": false,
+      "expected": "exact authorized target ACTIVE_HEALTHY",
+      "timestamp": "2026-10-13T23:57:01.740Z"
+    },
+    {
+      "id": "continuation-target-health-result",
+      "category": "management-result",
+      "status": "PASS",
+      "mutates": false,
+      "actual": "Exact authorized project smart-storage-test ACTIVE_HEALTHY",
+      "timestamp": "2026-10-13T23:57:07.472Z"
+    },
+    {
+      "id": "approved-identity-reconciliation",
+      "category": "readOnlySql",
+      "status": "reserved-before-dispatch",
+      "mutates": false,
+      "expected": "Only approved email identities and quota records; no duplicates",
+      "timestamp": "2026-10-13T23:57:07.475Z"
+    },
+    {
+      "id": "approved-identity-reconciliation-result",
+      "category": "readOnlySql-result",
+      "status": "PASS",
+      "mutates": false,
+      "actual": "No accounts match the two approved addresses; deployed hashes match; global quota/slots remain zero",
+      "timestamp": "2026-10-13T23:58:09.118Z"
+    },
+    {
+      "id": "signup-A",
+      "category": "auth",
+      "actor": "A",
+      "expected": "ordinary signup requiring confirmation",
+      "mutates": true,
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:01:23.501Z"
+    },
+    {
+      "id": "signup-A-result",
+      "category": "auth-result",
+      "actor": "A",
+      "httpStatus": 200,
+      "mutates": true,
+      "status": "PENDING_CONFIRMATION",
+      "actual": {
+        "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b",
+        "emailConfirmed": false,
+        "ordinaryRole": true,
+        "sessionIssued": false,
+        "emailDeliveryObserved": false
+      },
+      "timestamp": "2026-10-14T00:01:26.403Z"
+    },
+    {
+      "id": "signup-B",
+      "category": "auth",
+      "actor": "B",
+      "expected": "ordinary signup requiring confirmation",
+      "mutates": true,
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:01:46.311Z"
+    },
+    {
+      "id": "signup-B-result",
+      "category": "auth-result",
+      "actor": "B",
+      "httpStatus": 200,
+      "mutates": true,
+      "status": "PENDING_CONFIRMATION",
+      "actual": {
+        "id": "8ac118d1-f7a3-4ef4-a67c-43714a13f8ad",
+        "emailConfirmed": false,
+        "ordinaryRole": true,
+        "sessionIssued": false,
+        "emailDeliveryObserved": false
+      },
+      "timestamp": "2026-10-14T00:01:48.134Z"
+    },
+    {
+      "id": "provisioned-identity-readback",
+      "category": "readOnlySql",
+      "status": "reserved-before-dispatch",
+      "mutates": false,
+      "expected": "Distinct ordinary approved A/B identities and confirmation status",
+      "timestamp": "2026-10-14T00:01:49.362Z"
+    },
+    {
+      "id": "provisioned-identity-readback-result",
+      "category": "readOnlySql-result",
+      "status": "PASS",
+      "mutates": false,
+      "actual": {
+        "A": {
+          "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b",
+          "role": "authenticated",
+          "anonymous": false,
+          "emailConfirmed": false,
+          "confirmationSent": true
+        },
+        "B": {
+          "id": "8ac118d1-f7a3-4ef4-a67c-43714a13f8ad",
+          "role": "authenticated",
+          "anonymous": false,
+          "emailConfirmed": false,
+          "confirmationSent": true
+        },
+        "distinct": true
+      },
+      "timestamp": "2026-10-14T00:02:55.002Z"
+    },
+    {
+      "id": "private-store-local-reconciliation",
+      "category": "local-operation",
+      "status": "PASS",
+      "mutates": false,
+      "actual": "Only new Phase 2.4 directory DACL corrected to current-user/SYSTEM in request process; existing ciphertext writes retain verified file ACL. Initial SeSecurityPrivilege failure and two pre-dispatch stops consumed zero Auth requests. No old state touched.",
+      "timestamp": "2026-10-14T00:02:55.020Z"
+    },
+    {
+      "id": "human-confirmation-A",
+      "category": "auth",
+      "actor": "A",
+      "status": "RESERVED_EXTERNAL_CONFIRMATION",
+      "mutates": true,
+      "expected": "One private confirmation-link opening; no bypass",
+      "actual": "Two potential human Auth requests conservatively reserved; completion not yet observed",
+      "timestamp": "2026-10-14T00:02:55.020Z"
+    },
+    {
+      "id": "human-confirmation-B",
+      "category": "auth",
+      "actor": "B",
+      "status": "RESERVED_EXTERNAL_CONFIRMATION",
+      "mutates": true,
+      "expected": "One private confirmation-link opening; no bypass",
+      "actual": "Two potential human Auth requests conservatively reserved; completion not yet observed",
+      "timestamp": "2026-10-14T00:02:55.020Z"
+    },
+    {
+      "id": "human-confirmation-observation",
+      "category": "local-input",
+      "status": "OBSERVED_BY_USER",
+      "mutates": false,
+      "actual": "Both received emails; each confirmation link opened exactly once; no retries",
+      "timestamp": "2026-10-14T00:04:29.055Z"
+    },
+    {
+      "id": "email-confirmation-readback",
+      "category": "readOnlySql",
+      "status": "reserved-before-dispatch",
+      "mutates": false,
+      "expected": "Both exact verified ordinary test identities confirmed",
+      "timestamp": "2026-10-14T00:04:29.057Z"
+    },
+    {
+      "id": "email-confirmation-readback-result",
+      "category": "readOnlySql-result",
+      "status": "PASS",
+      "mutates": false,
+      "actual": "Both exact A/B identities provider-confirmed, ordinary authenticated/nonanonymous; distinct UUIDs match",
+      "timestamp": "2026-10-14T00:06:21.019Z"
+    },
+    {
+      "id": "login-A",
+      "category": "auth",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:30.641Z"
+    },
+    {
+      "id": "login-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null
+      },
+      "timestamp": "2026-10-14T00:06:32.161Z"
+    },
+    {
+      "id": "identity-A",
+      "category": "auth",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:33.250Z"
+    },
+    {
+      "id": "identity-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b"
+      },
+      "timestamp": "2026-10-14T00:06:33.620Z"
+    },
+    {
+      "id": "bootstrap-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:33.628Z"
+    },
+    {
+      "id": "bootstrap-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b"
+      },
+      "timestamp": "2026-10-14T00:06:34.719Z"
+    },
+    {
+      "id": "account-before-quota-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:34.735Z"
+    },
+    {
+      "id": "account-before-quota-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b",
+        "usage": {
+          "maxSlots": 0,
+          "quotaBytes": "0",
+          "activeSlots": 0,
+          "storedBytes": "0",
+          "reservedBytes": "0",
+          "historicalStoredBytes": "0",
+          "historicalOriginalBytes": "0"
+        }
+      },
+      "timestamp": "2026-10-14T00:06:35.275Z"
+    },
+    {
+      "id": "login-B",
+      "category": "auth",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:35.286Z"
+    },
+    {
+      "id": "login-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null
+      },
+      "timestamp": "2026-10-14T00:06:35.788Z"
+    },
+    {
+      "id": "identity-B",
+      "category": "auth",
+      "actor": "B",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:36.964Z"
+    },
+    {
+      "id": "identity-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "8ac118d1-f7a3-4ef4-a67c-43714a13f8ad"
+      },
+      "timestamp": "2026-10-14T00:06:37.335Z"
+    },
+    {
+      "id": "bootstrap-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:37.341Z"
+    },
+    {
+      "id": "bootstrap-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "8ac118d1-f7a3-4ef4-a67c-43714a13f8ad"
+      },
+      "timestamp": "2026-10-14T00:06:37.710Z"
+    },
+    {
+      "id": "account-before-quota-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:06:37.717Z"
+    },
+    {
+      "id": "account-before-quota-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "8ac118d1-f7a3-4ef4-a67c-43714a13f8ad",
+        "usage": {
+          "maxSlots": 0,
+          "quotaBytes": "0",
+          "activeSlots": 0,
+          "storedBytes": "0",
+          "reservedBytes": "0",
+          "historicalStoredBytes": "0",
+          "historicalOriginalBytes": "0"
+        }
+      },
+      "timestamp": "2026-10-14T00:06:37.989Z"
+    },
+    {
+      "id": "login-bootstrap-complete",
+      "category": "local-result",
+      "status": "PASS",
+      "actual": "Both distinct confirmed ordinary identities authenticated; owned bootstrap and zero-default account read verified",
+      "timestamp": "2026-10-14T00:06:37.998Z"
+    },
+    {
+      "id": "targeted-quota-update",
+      "category": "targetedQuotaWrites",
+      "status": "reserved-before-dispatch",
+      "mutates": true,
+      "expected": "Only confirmed A/B usage rows set quota1048576/maxSlots2; global/default/others unchanged",
+      "timestamp": "2026-10-14T00:07:22.349Z"
+    },
+    {
+      "id": "targeted-quota-update-result",
+      "category": "targetedQuotaWrites-result",
+      "status": "EXECUTED_READBACK_PENDING",
+      "mutates": true,
+      "actual": "Guarded transaction completed without error; exactly-two-row and unchanged-other-account checks included",
+      "timestamp": "2026-10-14T00:07:29.639Z"
+    },
+    {
+      "id": "targeted-quota-readback",
+      "category": "readOnlySql",
+      "status": "reserved-before-dispatch",
+      "mutates": false,
+      "expected": "Both exact test owners quota1048576/maxSlots2; global defaults0",
+      "timestamp": "2026-10-14T00:07:29.640Z"
+    },
+    {
+      "id": "targeted-quota-readback-result",
+      "category": "readOnlySql-result",
+      "status": "PASS",
+      "mutates": false,
+      "actual": "Both exact test usage rows quota1048576/maxSlots2; global defaults0; transaction checked other accounts unchanged",
+      "timestamp": "2026-10-14T00:10:05.727Z"
+    },
+    {
+      "id": "rls-fresh-identity-A",
+      "category": "auth",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:14.670Z"
+    },
+    {
+      "id": "rls-fresh-identity-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b"
+      },
+      "timestamp": "2026-10-14T00:10:15.984Z"
+    },
+    {
+      "id": "account-configured-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:15.992Z"
+    },
+    {
+      "id": "account-configured-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b",
+        "usage": {
+          "maxSlots": 2,
+          "quotaBytes": "1048576",
+          "activeSlots": 0,
+          "storedBytes": "0",
+          "reservedBytes": "0",
+          "historicalStoredBytes": "0",
+          "historicalOriginalBytes": "0"
+        }
+      },
+      "timestamp": "2026-10-14T00:10:16.425Z"
+    },
+    {
+      "id": "rls-fresh-identity-B",
+      "category": "auth",
+      "actor": "B",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:16.433Z"
+    },
+    {
+      "id": "rls-fresh-identity-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "8ac118d1-f7a3-4ef4-a67c-43714a13f8ad"
+      },
+      "timestamp": "2026-10-14T00:10:16.752Z"
+    },
+    {
+      "id": "account-configured-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:16.761Z"
+    },
+    {
+      "id": "account-configured-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "8ac118d1-f7a3-4ef4-a67c-43714a13f8ad",
+        "usage": {
+          "maxSlots": 2,
+          "quotaBytes": "1048576",
+          "activeSlots": 0,
+          "storedBytes": "0",
+          "reservedBytes": "0",
+          "historicalStoredBytes": "0",
+          "historicalOriginalBytes": "0"
+        }
+      },
+      "timestamp": "2026-10-14T00:10:17.018Z"
+    },
+    {
+      "id": "reserve-first-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:17.027Z"
+    },
+    {
+      "id": "reserve-first-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "ee26821e-9c29-427f-98d9-2e21b49dbea6",
+        "state": "reserved"
+      },
+      "timestamp": "2026-10-14T00:10:17.311Z"
+    },
+    {
+      "id": "reserve-first-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:18.823Z"
+    },
+    {
+      "id": "reserve-first-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "093307fe-6e1a-41b6-9f9b-2a4fde375817",
+        "state": "reserved"
+      },
+      "timestamp": "2026-10-14T00:10:19.142Z"
+    },
+    {
+      "id": "reserve-idempotent-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:20.041Z"
+    },
+    {
+      "id": "reserve-idempotent-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "ee26821e-9c29-427f-98d9-2e21b49dbea6",
+        "state": "reserved"
+      },
+      "timestamp": "2026-10-14T00:10:20.356Z"
+    },
+    {
+      "id": "reserve-idempotency-conflict-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 400,
+        "code": "IDEMPOTENCY_CONFLICT"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:20.371Z"
+    },
+    {
+      "id": "reserve-idempotency-conflict-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "IDEMPOTENCY_CONFLICT"
+      },
+      "timestamp": "2026-10-14T00:10:20.656Z"
+    },
+    {
+      "id": "reserve-invalid-size-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:20.667Z"
+    },
+    {
+      "id": "reserve-invalid-size-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "INVALID_INPUT"
+      },
+      "timestamp": "2026-10-14T00:10:21.074Z"
+    },
+    {
+      "id": "reserve-quota-exceeded-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": 400,
+        "code": "QUOTA_EXCEEDED"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:21.093Z"
+    },
+    {
+      "id": "reserve-quota-exceeded-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "QUOTA_EXCEEDED"
+      },
+      "timestamp": "2026-10-14T00:10:21.370Z"
+    },
+    {
+      "id": "owned-file-read-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:21.376Z"
+    },
+    {
+      "id": "owned-file-read-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "rows": 1
+      },
+      "timestamp": "2026-10-14T00:10:21.692Z"
+    },
+    {
+      "id": "cross-file-read-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:21.702Z"
+    },
+    {
+      "id": "cross-file-read-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "rows": 0
+      },
+      "timestamp": "2026-10-14T00:10:21.971Z"
+    },
+    {
+      "id": "owned-file-read-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:21.981Z"
+    },
+    {
+      "id": "owned-file-read-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "rows": 1
+      },
+      "timestamp": "2026-10-14T00:10:22.252Z"
+    },
+    {
+      "id": "cross-file-read-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:22.263Z"
+    },
+    {
+      "id": "cross-file-read-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "rows": 0
+      },
+      "timestamp": "2026-10-14T00:10:22.532Z"
+    },
+    {
+      "id": "anonymous-private-read",
+      "category": "rpc",
+      "actor": "anonymous",
+      "mutates": false,
+      "expected": {
+        "status": 401,
+        "code": "42501"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:22.545Z"
+    },
+    {
+      "id": "anonymous-private-read-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 401,
+      "actual": {
+        "providerCode": "42501"
+      },
+      "timestamp": "2026-10-14T00:10:22.839Z"
+    },
+    {
+      "id": "cross-edit-B-to-A",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": 400,
+        "code": "NOT_FOUND"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:22.846Z"
+    },
+    {
+      "id": "cross-edit-B-to-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "NOT_FOUND"
+      },
+      "timestamp": "2026-10-14T00:10:23.101Z"
+    },
+    {
+      "id": "cross-cancel-A-to-B",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 400,
+        "code": "NOT_FOUND"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:23.109Z"
+    },
+    {
+      "id": "cross-cancel-A-to-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "NOT_FOUND"
+      },
+      "timestamp": "2026-10-14T00:10:23.374Z"
+    },
+    {
+      "id": "owner-reassignment-denied",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 403,
+        "code": "42501"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:23.386Z"
+    },
+    {
+      "id": "owner-reassignment-denied-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 403,
+      "actual": {
+        "providerCode": "42501"
+      },
+      "timestamp": "2026-10-14T00:10:23.659Z"
+    },
+    {
+      "id": "restricted-usage-write-denied",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 403,
+        "code": "42501"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:23.670Z"
+    },
+    {
+      "id": "restricted-usage-write-denied-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 403,
+      "actual": {
+        "providerCode": "42501"
+      },
+      "timestamp": "2026-10-14T00:10:23.938Z"
+    },
+    {
+      "id": "privileged-finalize-denied",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 403,
+        "code": "42501"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:23.945Z"
+    },
+    {
+      "id": "privileged-finalize-denied-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 403,
+      "actual": {
+        "providerCode": "42501"
+      },
+      "timestamp": "2026-10-14T00:10:24.263Z"
+    },
+    {
+      "id": "privileged-release-denied",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": 403,
+        "code": "42501"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:24.269Z"
+    },
+    {
+      "id": "privileged-release-denied-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 403,
+      "actual": {
+        "providerCode": "42501"
+      },
+      "timestamp": "2026-10-14T00:10:24.573Z"
+    },
+    {
+      "id": "quota-race-C1",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": [200, 400],
+        "code": "QUOTA_EXCEEDED"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:24.580Z"
+    },
+    {
+      "id": "quota-race-C2",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": [200, 400],
+        "code": "QUOTA_EXCEEDED"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:24.599Z"
+    },
+    {
+      "id": "quota-race-C1-connection",
+      "category": "transport-evidence",
+      "status": "OBSERVED",
+      "actual": {
+        "connection": "C1",
+        "localTcpPort": 56007,
+        "independentHttpConnection": true,
+        "databaseBackendPidNotObserved": true
+      },
+      "timestamp": "2026-10-14T00:10:25.064Z"
+    },
+    {
+      "id": "quota-race-C1-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "QUOTA_EXCEEDED"
+      },
+      "timestamp": "2026-10-14T00:10:25.069Z"
+    },
+    {
+      "id": "quota-race-C2-connection",
+      "category": "transport-evidence",
+      "status": "OBSERVED",
+      "actual": {
+        "connection": "C2",
+        "localTcpPort": 56008,
+        "independentHttpConnection": true,
+        "databaseBackendPidNotObserved": true
+      },
+      "timestamp": "2026-10-14T00:10:25.129Z"
+    },
+    {
+      "id": "quota-race-C2-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "ed2104e6-7b20-41f1-9a54-892134e24a5a",
+        "state": "reserved"
+      },
+      "timestamp": "2026-10-14T00:10:25.133Z"
+    },
+    {
+      "id": "slot-race-C1",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": [200, 400],
+        "code": "SLOTS_EXCEEDED"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:26.054Z"
+    },
+    {
+      "id": "slot-race-C2",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": true,
+      "expected": {
+        "status": [200, 400],
+        "code": "SLOTS_EXCEEDED"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:26.062Z"
+    },
+    {
+      "id": "slot-race-C1-connection",
+      "category": "transport-evidence",
+      "status": "OBSERVED",
+      "actual": {
+        "connection": "C1",
+        "localTcpPort": 56009,
+        "independentHttpConnection": true,
+        "databaseBackendPidNotObserved": true
+      },
+      "timestamp": "2026-10-14T00:10:26.532Z"
+    },
+    {
+      "id": "slot-race-C1-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "63cb9522-3660-4279-a32e-92c4929e1530",
+        "state": "reserved"
+      },
+      "timestamp": "2026-10-14T00:10:26.538Z"
+    },
+    {
+      "id": "slot-race-C2-connection",
+      "category": "transport-evidence",
+      "status": "OBSERVED",
+      "actual": {
+        "connection": "C2",
+        "localTcpPort": 56010,
+        "independentHttpConnection": true,
+        "databaseBackendPidNotObserved": true
+      },
+      "timestamp": "2026-10-14T00:10:26.973Z"
+    },
+    {
+      "id": "slot-race-C2-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "SLOTS_EXCEEDED"
+      },
+      "timestamp": "2026-10-14T00:10:26.997Z"
+    },
+    {
+      "id": "allocate-disabled-authority-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:28.163Z"
+    },
+    {
+      "id": "allocate-disabled-authority-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "03eca15a-1a47-471a-9d52-9b2f0949018e"
+      },
+      "timestamp": "2026-10-14T00:10:28.450Z"
+    },
+    {
+      "id": "unresolved-attempt-held-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 400,
+        "code": "AMBIGUOUS_ATTEMPT_LOCKED"
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:29.569Z"
+    },
+    {
+      "id": "unresolved-attempt-held-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 400,
+      "actual": {
+        "providerCode": "AMBIGUOUS_ATTEMPT_LOCKED"
+      },
+      "timestamp": "2026-10-14T00:10:29.851Z"
+    },
+    {
+      "id": "cancel-held-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:29.870Z"
+    },
+    {
+      "id": "cancel-held-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "state": "cancelling"
+      },
+      "timestamp": "2026-10-14T00:10:30.496Z"
+    },
+    {
+      "id": "cancel-idempotent-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": true,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:30.510Z"
+    },
+    {
+      "id": "cancel-idempotent-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "state": "cancelling"
+      },
+      "timestamp": "2026-10-14T00:10:30.770Z"
+    },
+    {
+      "id": "account-held-after-cancel-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:30.775Z"
+    },
+    {
+      "id": "account-held-after-cancel-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "id": "6c4e0d33-6305-48b7-9665-58d0a1536b6b",
+        "usage": {
+          "maxSlots": 2,
+          "quotaBytes": "1048576",
+          "activeSlots": 2,
+          "storedBytes": "0",
+          "reservedBytes": "786496",
+          "historicalStoredBytes": "0",
+          "historicalOriginalBytes": "0"
+        }
+      },
+      "timestamp": "2026-10-14T00:10:31.054Z"
+    },
+    {
+      "id": "owned-sessions-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:10:31.066Z"
+    },
+    {
+      "id": "owned-sessions-A-result",
+      "category": "result",
+      "status": "FAILED",
+      "httpStatus": 403,
+      "actual": {
+        "providerCode": "42501"
+      },
+      "timestamp": "2026-10-14T00:10:31.370Z"
+    },
+    {
+      "id": "owned-sessions-A-method-diagnosis",
+      "category": "local-result",
+      "status": "CONFIRMED_CLIENT_REQUEST_ERROR",
+      "actual": {
+        "recordedMethod": "POST",
+        "intendedMethod": "GET",
+        "httpStatus": 403,
+        "providerCode": "42501",
+        "databaseMutationObserved": false,
+        "originalEventPreserved": true
+      },
+      "timestamp": "2026-10-14T00:14:54.391Z"
+    },
+    {
+      "id": "owned-session-read-corrected-A",
+      "category": "rpc",
+      "actor": "A",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:14:54.419Z"
+    },
+    {
+      "id": "owned-session-read-corrected-A-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "rows": 2
+      },
+      "timestamp": "2026-10-14T00:14:55.474Z"
+    },
+    {
+      "id": "owned-session-read-corrected-B",
+      "category": "rpc",
+      "actor": "B",
+      "mutates": false,
+      "expected": {
+        "status": 200,
+        "code": null
+      },
+      "status": "reserved-before-dispatch",
+      "timestamp": "2026-10-14T00:14:55.480Z"
+    },
+    {
+      "id": "owned-session-read-corrected-B-result",
+      "category": "result",
+      "status": "PASS",
+      "httpStatus": 200,
+      "actual": {
+        "providerCode": null,
+        "rows": 2
+      },
+      "timestamp": "2026-10-14T00:14:55.742Z"
+    },
+    {
+      "id": "owned-session-read-correction-complete",
+      "category": "local-result",
+      "status": "PASS",
+      "actual": "Append-only corrected GETs verified two owner-scoped sessions per identity; denied POST evidence retained",
+      "timestamp": "2026-10-14T00:14:55.751Z"
+    },
+    {
+      "id": "owned-session-post-denial-readback",
+      "category": "readOnlySql",
+      "actor": "provider-read-only",
+      "mutates": false,
+      "status": "PASS",
+      "actual": {
+        "projectStatus": "ACTIVE_HEALTHY",
+        "approvedSessionCount": 4,
+        "approvedFileCount": 4,
+        "authenticatedSelectPrivilege": true,
+        "rlsEnabled": true,
+        "policyCount": 1,
+        "unexpectedMutationObserved": false
+      },
+      "timestamp": "2026-10-14T00:13:30.000Z"
+    }
+  ],
+  "status": "PARTIAL",
+  "stopReason": "Authorized live subset complete; browser Auth lifecycle and trusted-worker transitions remain unexecuted; cleanup not authorized",
+  "endedAt": "2026-10-13T23:50:26.986Z"
+}

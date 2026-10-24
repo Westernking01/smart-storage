@@ -1,0 +1,34 @@
+{
+  "status": "PROVISIONED_RUNTIME_VALIDATION_PASSED",
+  "at": "2026-10-16T14:27:20.127Z",
+  "target": "127.0.0.1:5432/smart_storage_gateway_test",
+  "role": "ss_gateway_observer_runtime_test",
+  "proposalSha256": "e2f5375dcce851897dc803c00346c55a2c444a8a411827a17e983d09829d6c7f",
+  "backup": "C:/ProgramData/SmartStoragePgTest/pg_hba.pre-observer-2026-10-16T14-27-19-302Z.bak",
+  "originalHbaSha256": "6783815c69d5a7ff182f57e41e2f53f8e2f51b678fc25a5934bb2c7fa7ec6178",
+  "addedRules": [
+    "# Smart Storage dedicated observer runtime",
+    "host smart_storage_gateway_test ss_gateway_observer_runtime_test 127.0.0.1/32 scram-sha-256",
+    "host all ss_gateway_observer_runtime_test 0.0.0.0/0 reject",
+    "host all ss_gateway_observer_runtime_test ::0/0 reject",
+    "local all ss_gateway_observer_runtime_test reject"
+  ],
+  "membership": {
+    "role": "ss_gateway_observer",
+    "admin": false,
+    "inherit": false,
+    "set": true
+  },
+  "databaseChange": "CONNECT grant only; existing PUBLIC ACL unchanged",
+  "password": "USER_MANAGED; independent authentication validated; credential contents not inspected",
+  "cleanup": "Separately authorize exact role/membership/CONNECT/search_path/HBA removal after dependency and session review; no database reset",
+  "runtimeValidation": {
+    "status": "PASSED",
+    "evidence": "tests/database/observer-runtime-results.json",
+    "at": "2026-10-16T14:35:01.759Z",
+    "namespace": "65324f54",
+    "execution": "user-run independent local harness; saved evidence inspected by agent; no rerun",
+    "fixtures": "tests/database/observer-fixture-65324f54.json",
+    "fixtureState": "verified-retained"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "role": {
+    "login": true,
+    "safe": true
+  },
+  "memberships": 1,
+  "membershipSafe": true,
+  "privateDenied": true,
+  "hba": [
+    {
+      "rule_number": 1,
+      "type": "host",
+      "database": [
+        "smart_storage_gateway_test"
+      ],
+      "user_name": [
+        "ss_gateway_observer_runtime_test"
+      ],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 2,
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "ss_gateway_observer_runtime_test"
+      ],
+      "address": "0.0.0.0",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 3,
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "ss_gateway_observer_runtime_test"
+      ],
+      "address": "::",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 4,
+      "type": "local",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "ss_gateway_observer_runtime_test"
+      ],
+      "address": null,
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 5,
+      "type": "host",
+      "database": [
+        "smart_storage_gateway_test"
+      ],
+      "user_name": [
+        "ss_gateway_runtime_test"
+      ],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 6,
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "ss_gateway_runtime_test"
+      ],
+      "address": "0.0.0.0",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 7,
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "ss_gateway_runtime_test"
+      ],
+      "address": "::",
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 8,
+      "type": "local",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "ss_gateway_runtime_test"
+      ],
+      "address": null,
+      "auth_method": "reject",
+      "error": null
+    },
+    {
+      "rule_number": 9,
+      "type": "local",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 10,
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 11,
+      "type": "host",
+      "database": [
+        "all"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 12,
+      "type": "local",
+      "database": [
+        "replication"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": null,
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 13,
+      "type": "host",
+      "database": [
+        "replication"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    },
+    {
+      "rule_number": 14,
+      "type": "host",
+      "database": [
+        "replication"
+      ],
+      "user_name": [
+        "all"
+      ],
+      "address": "::1",
+      "auth_method": "scram-sha-256",
+      "error": null
+    }
+  ]
+}

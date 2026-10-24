@@ -1,0 +1,7 @@
+{
+  "sourceBytes": 4736,
+  "encodedBytes": 89,
+  "sourceSha256": "34886abb99160fae6c1180596deec9e9750025a4a55bba7134d027d2c6ebb9ec",
+  "encodedSha256": "fea29b705cfc93292be9a29f855a2e534ec13fe154dabe6b657234fc516094f7",
+  "verification": "Node crypto SHA-256 and zlib bounded gunzip; independent of application codec/hash/restore"
+}

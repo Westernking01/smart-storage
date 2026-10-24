@@ -1,0 +1,137 @@
+{
+  "identity": ["smart_storage_gateway_test", "17.11", "127.0.0.1", 5432],
+  "roles": [
+    {
+      "rolname": "ss_gateway_executor",
+      "rolcanlogin": false,
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false,
+      "rolreplication": false,
+      "rolbypassrls": false,
+      "rolinherit": false
+    },
+    {
+      "rolname": "ss_gateway_runtime_test",
+      "rolcanlogin": true,
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false,
+      "rolreplication": false,
+      "rolbypassrls": false,
+      "rolinherit": false
+    }
+  ],
+  "membership": [
+    {
+      "roleid": "ss_gateway_executor",
+      "member": "ss_gateway_runtime_test",
+      "admin_option": false,
+      "inherit_option": false,
+      "set_option": true
+    }
+  ],
+  "database_acl": "{postgres=CTc/postgres,ss_gateway_runtime_test=c/postgres}",
+  "settings": [["search_path=\"\""]],
+  "private_table_access": 0,
+  "rule_errors": 0,
+  "rule_order": [
+    {
+      "rule_number": 1,
+      "type": "host",
+      "database": ["smart_storage_gateway_test"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256"
+    },
+    {
+      "rule_number": 2,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "0.0.0.0",
+      "auth_method": "reject"
+    },
+    {
+      "rule_number": 3,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": "::",
+      "auth_method": "reject"
+    },
+    {
+      "rule_number": 4,
+      "type": "local",
+      "database": ["all"],
+      "user_name": ["ss_gateway_runtime_test"],
+      "address": null,
+      "auth_method": "reject"
+    },
+    {
+      "rule_number": 5,
+      "type": "local",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": null,
+      "auth_method": "scram-sha-256"
+    },
+    {
+      "rule_number": 6,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256"
+    },
+    {
+      "rule_number": 7,
+      "type": "host",
+      "database": ["all"],
+      "user_name": ["all"],
+      "address": "::1",
+      "auth_method": "scram-sha-256"
+    },
+    {
+      "rule_number": 8,
+      "type": "local",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": null,
+      "auth_method": "scram-sha-256"
+    },
+    {
+      "rule_number": 9,
+      "type": "host",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": "127.0.0.1",
+      "auth_method": "scram-sha-256"
+    },
+    {
+      "rule_number": 10,
+      "type": "host",
+      "database": ["replication"],
+      "user_name": ["all"],
+      "address": "::1",
+      "auth_method": "scram-sha-256"
+    }
+  ],
+  "negativeConnections": [
+    {
+      "host": "127.0.0.1",
+      "database": "postgres",
+      "status": "HBA rejected before authentication"
+    },
+    {
+      "host": "127.0.0.1",
+      "database": "template1",
+      "status": "HBA rejected before authentication"
+    },
+    {
+      "host": "::1",
+      "database": "smart_storage_gateway_test",
+      "status": "HBA rejected before authentication"
+    }
+  ]
+}

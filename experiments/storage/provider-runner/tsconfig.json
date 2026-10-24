@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": ".",
+    "outDir": "../../../.cache/provider-runner/build",
+    "noEmit": false,
+    "incremental": false,
+    "plugins": []
+  },
+  "include": ["*.ts"],
+  "exclude": ["*.test.ts", "vitest.config.ts"]
+}

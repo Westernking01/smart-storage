@@ -1,0 +1,51 @@
+{
+  "task": "1.4A.5",
+  "date": "2026-10-12",
+  "input": "experiments/storage/setup/storage-policies.review.sql",
+  "sha256": "4ffee7288a08a5af6e669724a6126c72bc0c11b0ab7840793b36e0b75d83f193",
+  "mode": "OFFLINE_PARSING_ONLY_NO_EXECUTION",
+  "packages": {
+    "pg17-parser (npm alias for libpg-query)": "17.7.4",
+    "libpg-query": "18.1.5"
+  },
+  "parserVersions": {
+    "sql17": 170007,
+    "sql18": 180004
+  },
+  "statementKinds": [
+    "TransactionStmt",
+    "DoStmt",
+    "DoStmt",
+    "CreatePolicyStmt",
+    "CreatePolicyStmt",
+    "CreatePolicyStmt",
+    "CreatePolicyStmt",
+    "TransactionStmt"
+  ],
+  "policyCount": 4,
+  "policyNames": [
+    "p14a3_feasibility_insert",
+    "p14a3_feasibility_select",
+    "p14a3_feasibility_delete",
+    "p14a3_feasibility_no_update"
+  ],
+  "doBodiesParsed": 2,
+  "embeddedPlpgsqlExpressionsParsedWithPg17": 9,
+  "negativeControls": {
+    "malformedPolicyRejected": true,
+    "malformedDoRejected": true
+  },
+  "preservation": {
+    "reviewSql": true,
+    "cleanupPlan": true,
+    "applicationPackageJson": true,
+    "applicationLock": true
+  },
+  "limitations": [
+    "PL/pgSQL body parser uses PostgreSQL 18 grammar; server is 17.11. Embedded conditions additionally parsed with PostgreSQL 17 grammar.",
+    "Parsing does not resolve catalog roles/functions or validate execution privilege; live read-only checks supply separate evidence.",
+    "No review script executed locally or remotely. Separate provider SELECTs were read-only; no RLS/runtime/TUS validation."
+  ],
+  "guardRetained": true,
+  "terminalRollback": true
+}

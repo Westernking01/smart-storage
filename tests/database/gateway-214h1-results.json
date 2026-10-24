@@ -1,0 +1,44 @@
+{
+  "phase": "2.14H.1",
+  "status": "COMPLETE",
+  "database": "smart_storage_gateway_test",
+  "namespace": "be2b78e0",
+  "owner": "0e2b78e0-2148-4000-8000-000000000001",
+  "request": "5e2b78e0-2148-4000-8000-000000000001",
+  "resource": "7e2b78e0-2148-4000-8000-000000000001",
+  "migration": "supabase/migrations/202610160008_gateway_write_observations.sql",
+  "sha256": "a79f38981a48287df77ba877c70f2ce72eb688036b95715906baddbc0f978715",
+  "passed": [
+    "definer ownership, fixed search path, RLS and exact runtime grants",
+    "dispatch intent",
+    "write response remains provisional",
+    "timeout ambiguity",
+    "non-timeout ambiguity",
+    "exact duplicate idempotency",
+    "conflicting duplicate",
+    "wrong immutable identity",
+    "stale supplied epoch",
+    "cross-account and executor injection",
+    "unauthorized roles",
+    "malformed and certification assertions rejected",
+    "append-only and private RLS boundary",
+    "independent concurrent conflict with observed lock wait",
+    "no certificate, completion, accounting or reservation mutation",
+    "database current epoch fences old writer",
+    "existing receipt definition unchanged",
+    "existing receipt SQL compatibility suite (isolated rollback)"
+  ],
+  "overlap": {
+    "a": 7688,
+    "b": 11752,
+    "c": 4708,
+    "isolation": "read committed",
+    "wait": "Lock"
+  },
+  "retainedFixtures": true,
+  "providerRequests": 0,
+  "harnessHistory": [
+    "Initial run: all new-contract cases passed; legacy compatibility replay failed because of harness SQL quoting. Transaction rolled back; new namespaced contract fixtures retained.",
+    "Corrected compatibility quoting; focused suite passed. Additional security metadata assertions added before final verification."
+  ]
+}

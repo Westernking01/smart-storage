@@ -1,0 +1,57 @@
+{
+  "phase": "2.14H FINAL",
+  "status": "COMPLETE local scope",
+  "date": "2026-10-16",
+  "requirements": [
+    "FR-05",
+    "FR-08",
+    "FR-09",
+    "FR-11",
+    "FR-18",
+    "NFR-02",
+    "partial local T-07/08/10"
+  ],
+  "focusedTests": {
+    "command": "vitest run tests/unit/postgres-gateway-real.test.ts tests/unit/postgres-gateway.test.ts tests/unit/supabase-storage-provider.test.ts",
+    "passed": 47,
+    "failed": 0,
+    "skipped": 0,
+    "realPostgresGroups": 8,
+    "bindingUnitTests": 6,
+    "adapterTests": 33,
+    "result": "gateway-214h-final-integration-results.json"
+  },
+  "checks": [
+    {
+      "command": "tsc --noEmit --incremental false",
+      "exitCode": 0
+    },
+    {
+      "command": "eslint (nine changed gateway source/test files) --max-warnings 0",
+      "exitCode": 0
+    },
+    {
+      "command": "node --check tests/database/gateway-214h-final-provision.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "prettier --check (nine changed gateway source/test files)",
+      "exitCode": 0
+    }
+  ],
+  "documentation": "Reviewed manually; docs are excluded by repository .prettierignore.",
+  "earlierFailure": "Fresh fixture UPDATE rejected by immutable block trigger and transaction rolled back. Fixed by supplying digest on INSERT; original failure report retained.",
+  "provisioning": "gateway-214h-final-provisioning.json",
+  "catalog": "gateway-214h-final-catalog.json",
+  "cleanupInventory": "gateway-214h-final-fixture-inventory.json",
+  "limitations": [
+    "No live provider transport, public routes, production pool or caller-auth integration installed",
+    "Application requires injected parameter-binding PostgreSQL pool with discard-on-error semantics",
+    "Windows Unix-socket negative connection unavailable; ordered reject rule inspected",
+    "Remote route rejection checked by effective HBA ordering, not external-network probing",
+    "No provider certificates, hold release or cleanup settlement",
+    "ADR-041 unresolved; cloud transfers disabled"
+  ],
+  "remoteRequests": 0,
+  "cleanupPerformed": false
+}

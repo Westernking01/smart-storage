@@ -1,0 +1,49 @@
+{
+  "phase": "2.14H.3",
+  "status": "COMPLETE",
+  "database": "smart_storage_gateway_test",
+  "namespace": "617f2ca9",
+  "owner": "017f2ca9-2148-4000-8000-000000000001",
+  "request": "517f2ca9-2148-4000-8000-000000000001",
+  "resource": "717f2ca9-2148-4000-8000-000000000001",
+  "migration": "supabase/migrations/202610160009_gateway_dispatch_scope.sql",
+  "sha256": "1370137af37c2f9b4df6cfb168b96ce7995017ff98c307ab30cef31bcce0d726",
+  "passed": [
+    "trusted scope and registered exposure integrity",
+    "wrong request/resource/executor and cross-account denial",
+    "stale epoch/generation and unauthorized executor access",
+    "definer ownership, fixed search path, RLS and exact runtime grants",
+    "dispatch intent",
+    "write response remains provisional",
+    "timeout ambiguity",
+    "non-timeout ambiguity",
+    "exact duplicate idempotency",
+    "conflicting duplicate",
+    "wrong immutable identity",
+    "stale supplied epoch",
+    "cross-account and executor injection",
+    "unauthorized roles",
+    "malformed and certification assertions rejected",
+    "append-only and private RLS boundary",
+    "independent concurrent conflict with observed lock wait",
+    "independent dispatch/dispatch overlap consumes once",
+    "independent fence/dispatch overlap denies stale scope",
+    "no certificate, completion, accounting or reservation mutation",
+    "database current epoch fences old writer",
+    "existing receipt definition unchanged",
+    "existing receipt SQL compatibility suite (isolated rollback)"
+  ],
+  "overlap": {
+    "a": 19156,
+    "b": 14172,
+    "c": 1860,
+    "isolation": "read committed",
+    "wait": "Lock"
+  },
+  "retainedFixtures": true,
+  "providerRequests": 0,
+  "harnessHistory": [
+    "Migration applied once after local identity, retained inventory and RPC collision checks.",
+    "Initial SQL suites passed; added resolver metadata and independent dispatch/fencing races. A JavaScript quoting error in metadata assertion was corrected before final passing run."
+  ]
+}

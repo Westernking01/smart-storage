@@ -1,0 +1,18 @@
+{
+  "enabled": false,
+  "authorizationId": null,
+  "project": "rrylhvqalsxjnkdkpwde",
+  "authEndpoint": "https://rrylhvqalsxjnkdkpwde.supabase.co/auth/v1",
+  "userId": "310d0ec8-84ca-423a-b646-0480a20edc09",
+  "issuedAt": null,
+  "expiresAt": null,
+  "operations": { "passwordSignIn": 1, "identityVerification": 1 },
+  "maximumResponseBodyBytesPerOperation": 65536,
+  "timeoutMs": 30000,
+  "retries": 0,
+  "redirects": 0,
+  "accounting": "accepted-raw-response-body",
+  "physicalOverheadUnboundedAcknowledged": false,
+  "evidenceDirectory": "C:\\Users\\Admin\\Desktop\\NEW\\smart-storage-probe-evidence",
+  "restrictedAclReviewed": false
+}

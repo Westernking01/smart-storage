@@ -1,0 +1,284 @@
+{
+  "at": "2026-10-17T01:07:22.233Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "ss_file",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_sessions",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_account",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_allocate_attempt",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_begin_attempt_request",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_bootstrap",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_cancel",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_delete_file",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_edit_file",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_expire",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_finish_attempt_request",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_list_files",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_reconcile_removed_attempt",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_record_observation",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_reserve",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_settle_cleanup",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_claim_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_register_resource_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_dispatch_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_record_receipt_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_finalize_verified",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_prepare_finalization_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_begin_cleanup_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_lease_cleanup_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_record_removal_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_reconcile_discoveries_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_record_stream_outcome_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_discover_resource_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_complete_stream_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_claim_resource_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_settle_cleanup_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_record_write_observation_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_resolve_dispatch_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_seeded_fixture_register_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_seeded_fixture_resolve_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_seeded_fixture_receipt_v1",
+      "check": "observer_function_authority",
+      "pass": true
+    },
+    {
+      "name": "ss_gateway_claim_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160004_gateway_claim_contracts.sql"
+    },
+    {
+      "name": "ss_gateway_dispatch_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160004_gateway_claim_contracts.sql"
+    },
+    {
+      "name": "ss_gateway_register_resource_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160005_gateway_provider_evidence.sql"
+    },
+    {
+      "name": "ss_gateway_record_receipt_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160005_gateway_provider_evidence.sql"
+    },
+    {
+      "name": "ss_gateway_prepare_finalization_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160006_gateway_preparation_cleanup.sql"
+    },
+    {
+      "name": "ss_gateway_begin_cleanup_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160006_gateway_preparation_cleanup.sql"
+    },
+    {
+      "name": "ss_gateway_lease_cleanup_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160006_gateway_preparation_cleanup.sql"
+    },
+    {
+      "name": "ss_gateway_record_removal_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160006_gateway_preparation_cleanup.sql"
+    },
+    {
+      "name": "ss_gateway_settle_cleanup_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160006_gateway_preparation_cleanup.sql"
+    },
+    {
+      "name": "ss_gateway_record_stream_outcome_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160007_gateway_lifecycle.sql"
+    },
+    {
+      "name": "ss_gateway_complete_stream_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160007_gateway_lifecycle.sql"
+    },
+    {
+      "name": "ss_gateway_discover_resource_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160007_gateway_lifecycle.sql"
+    },
+    {
+      "name": "ss_gateway_reconcile_discoveries_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160007_gateway_lifecycle.sql"
+    },
+    {
+      "name": "ss_gateway_claim_resource_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160007_gateway_lifecycle.sql"
+    },
+    {
+      "name": "ss_gateway_record_write_observation_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160008_gateway_write_observations.sql"
+    },
+    {
+      "name": "ss_gateway_resolve_dispatch_v1",
+      "check": "gateway_body_owner_definer",
+      "pass": true,
+      "source": "202610160009_gateway_dispatch_scope.sql"
+    }
+  ],
+  "providerRequests": 0,
+  "registrationPerformed": false
+}

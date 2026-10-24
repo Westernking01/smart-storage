@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "at": "2026-10-16T14:35:01.759Z",
+  "namespace": "65324f54",
+  "independentObserverAuthentication": true,
+  "receiptDurable": true,
+  "duplicateIdempotency": true,
+  "conflictDenied": true,
+  "crossAccountDenied": true,
+  "staleEpochDenied": true,
+  "roleResetCommitRollback": true,
+  "privateAccessDenied": true,
+  "unrelatedRoleDenied": true,
+  "roleCreationDenied": true,
+  "tempDenied": true,
+  "wrongDatabasesAndIPv6Denied": true,
+  "reservationHoldsUnchanged": true,
+  "providerRequests": 0,
+  "credentialContentsReadByAgent": false
+}

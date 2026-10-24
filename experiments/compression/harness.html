@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Smart Storage compression experiment</title>
+    <style>
+      body {
+        font: 16px system-ui;
+        color: #26352f;
+        background: #f7f9f6;
+        margin: 32px;
+      }
+      input {
+        display: block;
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Compression feasibility harness</h1>
+    <p>
+      Local synthetic files only. This removable harness is independent of the
+      application.
+    </p>
+    <label for="file">Synthetic fixture</label>
+    <input id="file" type="file" />
+    <output id="status">Starting worker…</output>
+    <script type="module" src="/client.js"></script>
+  </body>
+</html>

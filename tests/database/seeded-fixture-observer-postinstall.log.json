@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-17T01:16:26.985Z",
+  "mode": "--interactive",
+  "exitCode": 0,
+  "status": "COMPLETED_REVIEW_CHECK_ROWS",
+  "error": null,
+  "providerRequests": 0,
+  "credentialContentsRead": false,
+  "fixtureRegistration": false
+}
